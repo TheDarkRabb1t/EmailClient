@@ -55,10 +55,10 @@ namespace EmailClient {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 261);
+			this->ClientSize = System::Drawing::Size(1147, 553);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Gui";
-			this->Text = L"Gui";
+			this->Text = L"Email Client";
 			this->ResumeLayout(false);
 
 		}

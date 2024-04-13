@@ -18,12 +18,18 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="system\Config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Gui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NewLetterForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="system\Config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
