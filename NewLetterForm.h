@@ -1,17 +1,10 @@
 ﻿#pragma once
-#include "system/service/AsyncEmailSender.h"
+#include "system/service/AsyncEmailService.h"
 #include "system/AuthProfileManager.h"
 #include "model/OutgoingEmailDTO.h"
 #include "system/Config.h"
 
 namespace EmailClient {
-
-	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
 
 	/// <summary>
 	/// Summary for NewLetterForm

@@ -112,10 +112,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="system\AuthProfileManager.cpp" />
     <ClCompile Include="system\Config.cpp" />
-    <ClCompile Include="system\service\AsyncEmailReceiver.cpp" />
-    <ClCompile Include="system\service\AsyncEmailSender.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -135,8 +132,7 @@
     </ClInclude>
     <ClInclude Include="system\AuthProfileManager.h" />
     <ClInclude Include="system\Config.h" />
-    <ClInclude Include="system\service\AsyncEmailReceiver.h" />
-    <ClInclude Include="system\service\AsyncEmailSender.h" />
+    <ClInclude Include="system\service\AsyncEmailService.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Gui.resx">
