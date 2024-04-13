@@ -45,4 +45,39 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\buttons\about.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\buttons\drafted.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\buttons\incoming.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\buttons\newLetter.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\buttons\save.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\buttons\search.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\buttons\sent.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\buttons\settings.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\buttons\spam.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\icons\app_128.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\icons\app_64.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

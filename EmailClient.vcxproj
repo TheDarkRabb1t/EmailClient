@@ -142,6 +142,19 @@
       <DependentUpon>NewLetterForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\buttons\about.png" />
+    <Image Include="resources\buttons\drafted.png" />
+    <Image Include="resources\buttons\incoming.png" />
+    <Image Include="resources\buttons\newLetter.png" />
+    <Image Include="resources\buttons\save.png" />
+    <Image Include="resources\buttons\search.png" />
+    <Image Include="resources\buttons\sent.png" />
+    <Image Include="resources\buttons\settings.png" />
+    <Image Include="resources\buttons\spam.png" />
+    <Image Include="resources\icons\app_128.ico" />
+    <Image Include="resources\icons\app_64.ico" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

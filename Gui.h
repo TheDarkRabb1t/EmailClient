@@ -67,7 +67,7 @@ namespace EmailClient {
 
 
 	private: System::Windows::Forms::RichTextBox^ searchTextField;
-	private: System::Windows::Forms::NotifyIcon^ notifyIcon1;
+
 	private: System::Windows::Forms::Button^ createNewMail;
 	private: System::ComponentModel::IContainer^ components;
 
@@ -95,7 +95,6 @@ namespace EmailClient {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Gui::typeid));
 			this->headerBodySplitContainer = (gcnew System::Windows::Forms::SplitContainer());
 			this->systemButtons = (gcnew System::Windows::Forms::GroupBox());
@@ -112,7 +111,6 @@ namespace EmailClient {
 			this->searchTextField = (gcnew System::Windows::Forms::RichTextBox());
 			this->createNewMail = (gcnew System::Windows::Forms::Button());
 			this->letterList = (gcnew System::Windows::Forms::ListView());
-			this->notifyIcon1 = (gcnew System::Windows::Forms::NotifyIcon(this->components));
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->headerBodySplitContainer))->BeginInit();
 			this->headerBodySplitContainer->Panel1->SuspendLayout();
 			this->headerBodySplitContainer->Panel2->SuspendLayout();
@@ -168,6 +166,7 @@ namespace EmailClient {
 			// infoButton
 			// 
 			this->infoButton->Dock = System::Windows::Forms::DockStyle::Left;
+			this->infoButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"infoButton.Image")));
 			this->infoButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->infoButton->Location = System::Drawing::Point(153, 16);
 			this->infoButton->Name = L"infoButton";
@@ -180,6 +179,7 @@ namespace EmailClient {
 			// settingsButton
 			// 
 			this->settingsButton->Dock = System::Windows::Forms::DockStyle::Left;
+			this->settingsButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"settingsButton.Image")));
 			this->settingsButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->settingsButton->Location = System::Drawing::Point(78, 16);
 			this->settingsButton->Name = L"settingsButton";
@@ -191,6 +191,7 @@ namespace EmailClient {
 			// saveButton
 			// 
 			this->saveButton->Dock = System::Windows::Forms::DockStyle::Left;
+			this->saveButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"saveButton.Image")));
 			this->saveButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->saveButton->Location = System::Drawing::Point(3, 16);
 			this->saveButton->Name = L"saveButton";
@@ -235,6 +236,7 @@ namespace EmailClient {
 			// spamButton
 			// 
 			this->spamButton->Dock = System::Windows::Forms::DockStyle::Top;
+			this->spamButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"spamButton.Image")));
 			this->spamButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->spamButton->Location = System::Drawing::Point(3, 112);
 			this->spamButton->Name = L"spamButton";
@@ -246,6 +248,7 @@ namespace EmailClient {
 			// draftedButton
 			// 
 			this->draftedButton->Dock = System::Windows::Forms::DockStyle::Top;
+			this->draftedButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"draftedButton.Image")));
 			this->draftedButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->draftedButton->Location = System::Drawing::Point(3, 80);
 			this->draftedButton->Name = L"draftedButton";
@@ -257,6 +260,7 @@ namespace EmailClient {
 			// sentButton
 			// 
 			this->sentButton->Dock = System::Windows::Forms::DockStyle::Top;
+			this->sentButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"sentButton.Image")));
 			this->sentButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->sentButton->Location = System::Drawing::Point(3, 48);
 			this->sentButton->Name = L"sentButton";
@@ -269,6 +273,7 @@ namespace EmailClient {
 			// 
 			this->incomingButton->BackColor = System::Drawing::SystemColors::Control;
 			this->incomingButton->Dock = System::Windows::Forms::DockStyle::Top;
+			this->incomingButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"incomingButton.Image")));
 			this->incomingButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->incomingButton->Location = System::Drawing::Point(3, 16);
 			this->incomingButton->Name = L"incomingButton";
@@ -333,11 +338,6 @@ namespace EmailClient {
 			this->letterList->UseCompatibleStateImageBehavior = false;
 			this->letterList->View = System::Windows::Forms::View::List;
 			this->letterList->SelectedIndexChanged += gcnew System::EventHandler(this, &Gui::listBox1_SelectedIndexChanged);
-			// 
-			// notifyIcon1
-			// 
-			this->notifyIcon1->Text = L"notifyIcon1";
-			this->notifyIcon1->Visible = true;
 			// 
 			// Gui
 			// 
