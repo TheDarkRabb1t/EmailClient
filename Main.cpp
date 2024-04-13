@@ -3,13 +3,11 @@
 #include <iostream>
 #include <Windows.h>
 
-using namespace System;
-using namespace System::Windows::Forms;
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-    Application::EnableVisualStyles();
-    Application::SetCompatibleTextRenderingDefault(false);
+    System::Windows::Forms::Application::EnableVisualStyles();
+    System::Windows::Forms::Application::SetCompatibleTextRenderingDefault(false);
 
     const std::string configFile = "settings.ini";
     Config& config = Config::getInstance();
@@ -22,7 +20,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     }
 
     EmailClient::Gui^ form = gcnew EmailClient::Gui();
-    Application::Run(form);
+    System::Windows::Forms::Application::Run(form);
 
     return 0;
 }

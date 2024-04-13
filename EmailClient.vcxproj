@@ -112,7 +112,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="system\AuthProfileManager.cpp" />
     <ClCompile Include="system\Config.cpp" />
+    <ClCompile Include="system\service\AsyncEmailReceiver.cpp" />
+    <ClCompile Include="system\service\AsyncEmailSender.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -125,10 +128,15 @@
     <ClInclude Include="Gui.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="model\OutgoingEmailDTO.h" />
+    <ClInclude Include="model\ProfileDto.h" />
     <ClInclude Include="NewLetterForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="system\AuthProfileManager.h" />
     <ClInclude Include="system\Config.h" />
+    <ClInclude Include="system\service\AsyncEmailReceiver.h" />
+    <ClInclude Include="system\service\AsyncEmailSender.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Gui.resx">

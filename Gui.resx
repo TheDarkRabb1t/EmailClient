@@ -118,6 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="createNewMail.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAEnSURBVEhL7dIvSwRBHMbxVRERDgwGi4gYLJd8BRo0Go36
+        FoxWm9brgmC0aROTyWSzGBTEYlAEg4j47/s9dpbblbmd4zgw3AOfY2aHfX67y2XDpOQePwNid3vxjWcc
+        Yr9Pdthlp93tnwPc4QO7GEWvGcE23vEABxUDLJ3Ccb4/wwxSM41TeO9JvrezNCBkC294xJoXarIMn9gn
+        9w18ExMdYJq4xhdaGEc1Y/C+T9xgCZ3pOsBMwnLPLzGPkFlcwLMjNFBN7YCQDbzkXK/jCa/YRCzJA8wi
+        ruBfT6691i0LWHWRMsBMYC/nuhrLLP2T1AF1ifb86wF+lsAe/1FhX3yufgZ4b0zRWdr0mIG/QWeiPR6c
+        YyfBHGKJDriFhylWEEvpswyTmCz7BYM+jkg+0PA6AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAgIAAAAEAIAAoCAEAFgAAACgAAACAAAAAAAEAAAEAIAAAAAAAAAABABMLAAATCwAAAAAAAAAA
