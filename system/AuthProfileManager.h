@@ -2,11 +2,11 @@
 #include <cliext/vector>
 #include "../model/ProfileDto.h"
 
-public ref class AuthProfilerManager sealed {
+public ref class AuthProfileManager sealed {
 public:
-    static AuthProfilerManager^ getInstance() {
+    static AuthProfileManager^ getInstance() {
         if (instance == nullptr) {
-            instance = gcnew AuthProfilerManager();
+            instance = gcnew AuthProfileManager();
         }
         return instance;
     }
@@ -52,11 +52,11 @@ public:
     }
 
 private:
-    AuthProfilerManager() : currentProfile(0) {
+    AuthProfileManager() : currentProfile(0) {
         ProfileDTO^ defaultProfile = gcnew ProfileDTO("Outlook","ctdrtest@outlook.com","Zxcadmin1");
         profiles.push_back(defaultProfile);
     }
-    static AuthProfilerManager^ instance;
+    static AuthProfileManager^ instance;
     cliext::vector<ProfileDTO^> profiles;
     int currentProfile;
 };

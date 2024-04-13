@@ -193,8 +193,8 @@ namespace EmailClient {
 #pragma endregion
 	private: System::Void sendNewEmail(System::Object^ sender, System::EventArgs^ e) {
 
-		ProfileDTO^ senderProfile = AuthProfilerManager::getInstance()->getCurrentProfile();
-		MailMessage^ email = gcnew MailMessage();
+		ProfileDTO^ senderProfile = AuthProfileManager::getInstance()->getCurrentProfile();
+		MailMessage^ email = gcnew System::Net::Mail::MailMessage();
 		email->From = senderProfile->email;
 		email->Subject = emailSubject->Text;
 		email->Body = emailBody->Text;

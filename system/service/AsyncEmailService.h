@@ -2,10 +2,12 @@
 #include <iostream>
 #include "../Config.h"
 #include "../../model/OutgoingEmailDTO.h"
+#include "../AuthProfileManager.h"
 #include <string>
 
 using System::Collections::Generic::List;
 using System::Net::Mail::MailMessage;
+using System::Net::Mail::SmtpClient;
 using System::Threading::TimerCallback;
 
 namespace EmailClient
@@ -45,9 +47,11 @@ namespace EmailClient
         {
             if (emailsToSend->Count > 0)
             {
-                OutgoingMailDTO^ email = emailsToSend[0];
+                OutgoingMailDTO^ oMailDTO = emailsToSend[0];
                 emailsToSend->RemoveAt(0);
-
+                
+                SmtpClient^ client = AuthProfileManager::getInstance()->getSmtpClientByProfileTitle(oMailDTO->profile->title);
+                client->Send(oMailDTO->message);
             }
         }
     };
