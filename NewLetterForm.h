@@ -202,6 +202,7 @@ namespace EmailClient {
 
 		OutgoingMailDTO^ oMailDTO = gcnew OutgoingMailDTO(senderProfile, email);
 		AsyncEmailSender::getInstance()->AppendEmailQueue(oMailDTO);
+		this->Close();
 	}
 	private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
 	}
