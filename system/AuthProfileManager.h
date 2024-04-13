@@ -52,7 +52,10 @@ public:
     }
 
 private:
-    AuthProfilerManager() : currentProfile(0) {}
+    AuthProfilerManager() : currentProfile(0) {
+        ProfileDTO^ defaultProfile = gcnew ProfileDTO("Outlook","ctdrtest@outlook.com","Zxcadmin1");
+        profiles.push_back(defaultProfile);
+    }
     static AuthProfilerManager^ instance;
     cliext::vector<ProfileDTO^> profiles;
     int currentProfile;

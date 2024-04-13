@@ -17,6 +17,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     }
     else {
         config.generateDefaultConfig();
+        config.saveConfig(configFile);
     }
 
     EmailClient::Gui^ form = gcnew EmailClient::Gui();
