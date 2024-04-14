@@ -354,6 +354,7 @@ namespace EmailClient {
 			this->ClientSize = System::Drawing::Size(1078, 558);
 			this->Controls->Add(this->headerBodySplitContainer);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->MinimumSize = System::Drawing::Size(540, 350);
 			this->Name = L"Gui";
 			this->Text = L"Email Client";
 			this->Load += gcnew System::EventHandler(this, &Gui::GUI_Load);
