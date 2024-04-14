@@ -140,6 +140,7 @@ namespace EmailClient {
 			// 
 			this->headerBodySplitContainer->Panel1->Controls->Add(this->systemButtons);
 			this->headerBodySplitContainer->Panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Gui::splitContainer1_Panel1_Paint_1);
+			this->headerBodySplitContainer->Panel1MinSize = 50;
 			// 
 			// headerBodySplitContainer.Panel2
 			// 
@@ -147,7 +148,7 @@ namespace EmailClient {
 			this->headerBodySplitContainer->Panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Gui::splitContainer1_Panel2_Paint_1);
 			this->headerBodySplitContainer->Panel2MinSize = 250;
 			this->headerBodySplitContainer->Size = System::Drawing::Size(1078, 558);
-			this->headerBodySplitContainer->SplitterDistance = 40;
+			this->headerBodySplitContainer->SplitterDistance = 60;
 			this->headerBodySplitContainer->TabIndex = 0;
 			// 
 			// systemButtons
@@ -157,12 +158,14 @@ namespace EmailClient {
 			this->systemButtons->Controls->Add(this->saveButton);
 			this->systemButtons->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->systemButtons->Location = System::Drawing::Point(0, 0);
-			this->systemButtons->MinimumSize = System::Drawing::Size(0, 40);
+			this->systemButtons->MaximumSize = System::Drawing::Size(0, 50);
+			this->systemButtons->MinimumSize = System::Drawing::Size(0, 50);
 			this->systemButtons->Name = L"systemButtons";
-			this->systemButtons->Size = System::Drawing::Size(1078, 40);
+			this->systemButtons->Size = System::Drawing::Size(1078, 50);
 			this->systemButtons->TabIndex = 0;
 			this->systemButtons->TabStop = false;
 			this->systemButtons->Text = L"System";
+			this->systemButtons->Enter += gcnew System::EventHandler(this, &Gui::systemButtons_Enter);
 			// 
 			// infoButton
 			// 
@@ -171,9 +174,10 @@ namespace EmailClient {
 			this->infoButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->infoButton->Location = System::Drawing::Point(153, 16);
 			this->infoButton->Name = L"infoButton";
-			this->infoButton->Size = System::Drawing::Size(75, 21);
+			this->infoButton->Size = System::Drawing::Size(75, 31);
 			this->infoButton->TabIndex = 2;
-			this->infoButton->Text = L"info";
+			this->infoButton->Text = L"about";
+			this->infoButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->infoButton->UseVisualStyleBackColor = true;
 			this->infoButton->Click += gcnew System::EventHandler(this, &Gui::openAboutWindow);
 			// 
@@ -184,9 +188,10 @@ namespace EmailClient {
 			this->settingsButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->settingsButton->Location = System::Drawing::Point(78, 16);
 			this->settingsButton->Name = L"settingsButton";
-			this->settingsButton->Size = System::Drawing::Size(75, 21);
+			this->settingsButton->Size = System::Drawing::Size(75, 31);
 			this->settingsButton->TabIndex = 1;
 			this->settingsButton->Text = L"settings";
+			this->settingsButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->settingsButton->UseVisualStyleBackColor = true;
 			this->settingsButton->Click += gcnew System::EventHandler(this, &Gui::openSettingsForm);
 			// 
@@ -197,9 +202,10 @@ namespace EmailClient {
 			this->saveButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->saveButton->Location = System::Drawing::Point(3, 16);
 			this->saveButton->Name = L"saveButton";
-			this->saveButton->Size = System::Drawing::Size(75, 21);
+			this->saveButton->Size = System::Drawing::Size(75, 31);
 			this->saveButton->TabIndex = 0;
-			this->saveButton->Text = L"save";
+			this->saveButton->Text = L"profiles";
+			this->saveButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->saveButton->UseVisualStyleBackColor = true;
 			// 
 			// menuLettersSplitContainer
@@ -216,7 +222,7 @@ namespace EmailClient {
 			// menuLettersSplitContainer.Panel2
 			// 
 			this->menuLettersSplitContainer->Panel2->Controls->Add(this->searchLetterListSplitContainer);
-			this->menuLettersSplitContainer->Size = System::Drawing::Size(1078, 514);
+			this->menuLettersSplitContainer->Size = System::Drawing::Size(1078, 494);
 			this->menuLettersSplitContainer->SplitterDistance = 359;
 			this->menuLettersSplitContainer->TabIndex = 0;
 			// 
@@ -228,8 +234,9 @@ namespace EmailClient {
 			this->itemsMenu->Controls->Add(this->incomingButton);
 			this->itemsMenu->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->itemsMenu->Location = System::Drawing::Point(0, 0);
+			this->itemsMenu->MinimumSize = System::Drawing::Size(0, 504);
 			this->itemsMenu->Name = L"itemsMenu";
-			this->itemsMenu->Size = System::Drawing::Size(359, 514);
+			this->itemsMenu->Size = System::Drawing::Size(359, 504);
 			this->itemsMenu->TabIndex = 0;
 			this->itemsMenu->TabStop = false;
 			this->itemsMenu->Text = L"Mail Types";
@@ -301,7 +308,7 @@ namespace EmailClient {
 			this->searchLetterListSplitContainer->Panel2->Controls->Add(this->createNewMail);
 			this->searchLetterListSplitContainer->Panel2->Controls->Add(this->letterList);
 			this->searchLetterListSplitContainer->Panel2MinSize = 50;
-			this->searchLetterListSplitContainer->Size = System::Drawing::Size(715, 514);
+			this->searchLetterListSplitContainer->Size = System::Drawing::Size(715, 494);
 			this->searchLetterListSplitContainer->SplitterDistance = 25;
 			this->searchLetterListSplitContainer->TabIndex = 0;
 			// 
@@ -317,7 +324,7 @@ namespace EmailClient {
 			// createNewMail
 			// 
 			this->createNewMail->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"createNewMail.Image")));
-			this->createNewMail->Location = System::Drawing::Point(652, 429);
+			this->createNewMail->Location = System::Drawing::Point(654, 421);
 			this->createNewMail->Margin = System::Windows::Forms::Padding(3, 3, 10, 10);
 			this->createNewMail->Name = L"createNewMail";
 			this->createNewMail->Size = System::Drawing::Size(49, 42);
@@ -333,7 +340,7 @@ namespace EmailClient {
 			this->letterList->HideSelection = false;
 			this->letterList->Location = System::Drawing::Point(0, 0);
 			this->letterList->Name = L"letterList";
-			this->letterList->Size = System::Drawing::Size(711, 481);
+			this->letterList->Size = System::Drawing::Size(711, 461);
 			this->letterList->TabIndex = 0;
 			this->letterList->UseCompatibleStateImageBehavior = false;
 			this->letterList->View = System::Windows::Forms::View::List;
@@ -415,5 +422,7 @@ namespace EmailClient {
 		EmailClient::AboutWindow^ aboutWindow = gcnew EmailClient::AboutWindow();
 		aboutWindow->Show();
 	}
+private: System::Void systemButtons_Enter(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
