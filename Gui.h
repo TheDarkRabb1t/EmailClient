@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "NewLetterForm.h"
 #include "SettingsForm.h"
+#include "AboutWindow.h"
 
 namespace EmailClient {
 
@@ -162,7 +163,6 @@ namespace EmailClient {
 			this->systemButtons->TabIndex = 0;
 			this->systemButtons->TabStop = false;
 			this->systemButtons->Text = L"System";
-			this->systemButtons->Enter += gcnew System::EventHandler(this, &Gui::groupBox1_Enter_1);
 			// 
 			// infoButton
 			// 
@@ -175,7 +175,7 @@ namespace EmailClient {
 			this->infoButton->TabIndex = 2;
 			this->infoButton->Text = L"info";
 			this->infoButton->UseVisualStyleBackColor = true;
-			this->infoButton->Click += gcnew System::EventHandler(this, &Gui::button3_Click);
+			this->infoButton->Click += gcnew System::EventHandler(this, &Gui::openAboutWindow);
 			// 
 			// settingsButton
 			// 
@@ -201,7 +201,6 @@ namespace EmailClient {
 			this->saveButton->TabIndex = 0;
 			this->saveButton->Text = L"save";
 			this->saveButton->UseVisualStyleBackColor = true;
-			this->saveButton->Click += gcnew System::EventHandler(this, &Gui::button1_Click_1);
 			// 
 			// menuLettersSplitContainer
 			// 
@@ -283,7 +282,6 @@ namespace EmailClient {
 			this->incomingButton->TabIndex = 0;
 			this->incomingButton->Text = L"Incoming";
 			this->incomingButton->UseVisualStyleBackColor = false;
-			this->incomingButton->Click += gcnew System::EventHandler(this, &Gui::button4_Click);
 			// 
 			// searchLetterListSplitContainer
 			// 
@@ -380,22 +378,10 @@ namespace EmailClient {
 
 	private: System::Void splitContainer1_Panel1_Paint_1(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
 
-	private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void groupBox1_Enter_1(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
 	private: System::Void splitContainer1_Panel1_Paint_2(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void GUI_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -424,6 +410,10 @@ namespace EmailClient {
 	private: System::Void openSettingsForm(System::Object^ sender, System::EventArgs^ e) {
 		EmailClient::SettingsForm^ settingsForm = gcnew EmailClient::SettingsForm();
 		settingsForm->Show();
+	}
+	private: System::Void openAboutWindow(System::Object^ sender, System::EventArgs^ e) {
+		EmailClient::AboutWindow^ aboutWindow = gcnew EmailClient::AboutWindow();
+		aboutWindow->Show();
 	}
 };
 }

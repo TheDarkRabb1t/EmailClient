@@ -54,6 +54,10 @@ namespace EmailClient {
 
 
 
+
+
+
+
 	protected:
 
 	private:
@@ -141,7 +145,7 @@ namespace EmailClient {
 			// 
 			this->PropertyValue->HeaderText = L"Value";
 			this->PropertyValue->Name = L"PropertyValue";
-			this->PropertyValue->Width = 150;
+			this->PropertyValue->Width = 140;
 			// 
 			// SettingsForm
 			// 
