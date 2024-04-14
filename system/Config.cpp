@@ -14,14 +14,14 @@ Config& Config::getInstance() {
     return *instance;
 }
 
-bool Config::loadConfig(const std::string& filename) {
-    return parseConfigFile(filename);
+bool Config::loadConfig() {
+    return parseConfigFile(this->configFileName);
 }
 
-bool Config::saveConfig(const std::string& filename) {
-    std::ofstream outFile(filename);
+bool Config::saveConfig() {
+    std::ofstream outFile(this->configFileName);
     if (!outFile.is_open()) {
-        std::cerr << "Error opening file for writing: " << filename << std::endl;
+        std::cerr << "Error opening file for writing: " << this->configFileName << std::endl;
         return false;
     }
 
@@ -41,6 +41,11 @@ std::string Config::getValue(const std::string& key) const {
     else {
         return ""; // Key not found, return an empty string (you can handle this case differently if needed)
     }
+}
+
+std::map<std::string, std::string> Config::getConfigMap() const
+{
+    return this->configMap;
 }
 
 void Config::setValue(const std::string& key, const std::string& value) {
@@ -75,6 +80,8 @@ std::string Config::trim(const std::string& str) {
     }
     return str.substr(first, last - first + 1);
 }
+
+
 
 void Config::generateDefaultConfig() {
     configMap["login_outlook"] = "ctdrtest@outlook.com";

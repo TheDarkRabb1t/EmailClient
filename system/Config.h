@@ -8,15 +8,17 @@ class Config {
 public:
     static Config& getInstance();  // Singleton instance getter
 
-    bool loadConfig(const std::string& filename);  // Load configuration from file
-    bool saveConfig(const std::string& filename);  // Save configuration to file
+    bool loadConfig();  // Load configuration from file
+    bool saveConfig();  // Save configuration to file
 
     std::string getValue(const std::string& key) const;  // Get value for a key
+    std::map<std::string, std::string> getConfigMap() const;
     void setValue(const std::string& key, const std::string& value);  // Set value for a key
 
     void generateDefaultConfig();  // Generate default configuration values
 
 private:
+    const std::string configFileName = "settings.ini";
     Config();  // Private constructor for singleton
     Config(const Config&) = delete;  // Disable copy constructor
     Config& operator=(const Config&) = delete;  // Disable assignment operator

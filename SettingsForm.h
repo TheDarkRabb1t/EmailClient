@@ -1,4 +1,7 @@
 ﻿#pragma once
+#include "system/Config.h";
+#include <msclr/marshal_cppstd.h>
+
 
 namespace EmailClient {
 
@@ -21,6 +24,13 @@ namespace EmailClient {
 			//
 			//TODO: Add the constructor code here
 			//
+			std::map<std::string, std::string> configMapCopy = Config::getInstance().getConfigMap();
+			int row = 0;
+			for (const auto& pair : configMapCopy) {
+				settingsGrid->Rows->Add(gcnew array<String^> { gcnew String(pair.first.c_str()), gcnew String(pair.second.c_str()) });
+				row++;
+			}
+
 		}
 
 	protected:
@@ -36,11 +46,14 @@ namespace EmailClient {
 		}
 	private: System::Windows::Forms::SplitContainer^ settingsGridSaveBSplit;
 	private: System::Windows::Forms::Button^ applySettingsButton;
-
-
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::DataGridView^ settingsGrid;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ PropertyName;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ PropertyValue;
+
+
+
+
+
 	protected:
 
 	private:
@@ -58,15 +71,15 @@ namespace EmailClient {
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(SettingsForm::typeid));
 			this->settingsGridSaveBSplit = (gcnew System::Windows::Forms::SplitContainer());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->settingsGrid = (gcnew System::Windows::Forms::DataGridView());
+			this->applySettingsButton = (gcnew System::Windows::Forms::Button());
 			this->PropertyName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->PropertyValue = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->applySettingsButton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->settingsGridSaveBSplit))->BeginInit();
 			this->settingsGridSaveBSplit->Panel1->SuspendLayout();
 			this->settingsGridSaveBSplit->Panel2->SuspendLayout();
 			this->settingsGridSaveBSplit->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->settingsGrid))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// settingsGridSaveBSplit
@@ -78,7 +91,7 @@ namespace EmailClient {
 			// 
 			// settingsGridSaveBSplit.Panel1
 			// 
-			this->settingsGridSaveBSplit->Panel1->Controls->Add(this->dataGridView1);
+			this->settingsGridSaveBSplit->Panel1->Controls->Add(this->settingsGrid);
 			this->settingsGridSaveBSplit->Panel1MinSize = 400;
 			// 
 			// settingsGridSaveBSplit.Panel2
@@ -88,30 +101,23 @@ namespace EmailClient {
 			this->settingsGridSaveBSplit->SplitterDistance = 400;
 			this->settingsGridSaveBSplit->TabIndex = 0;
 			// 
-			// dataGridView1
+			// settingsGrid
 			// 
-			this->dataGridView1->AllowUserToAddRows = false;
-			this->dataGridView1->AllowUserToDeleteRows = false;
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
+			this->settingsGrid->AllowUserToAddRows = false;
+			this->settingsGrid->AllowUserToDeleteRows = false;
+			this->settingsGrid->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->settingsGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->settingsGrid->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
 				this->PropertyName,
 					this->PropertyValue
 			});
-			this->dataGridView1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->dataGridView1->Location = System::Drawing::Point(0, 0);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(318, 400);
-			this->dataGridView1->TabIndex = 0;
-			// 
-			// PropertyName
-			// 
-			this->PropertyName->HeaderText = L"Property";
-			this->PropertyName->Name = L"PropertyName";
-			// 
-			// PropertyValue
-			// 
-			this->PropertyValue->HeaderText = L"Value";
-			this->PropertyValue->Name = L"PropertyValue";
+			this->settingsGrid->Location = System::Drawing::Point(0, 0);
+			this->settingsGrid->Name = L"settingsGrid";
+			this->settingsGrid->Size = System::Drawing::Size(318, 400);
+			this->settingsGrid->TabIndex = 0;
+			this->settingsGrid->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &SettingsForm::settingsGrid_CellContentClick);
 			// 
 			// applySettingsButton
 			// 
@@ -122,6 +128,20 @@ namespace EmailClient {
 			this->applySettingsButton->TabIndex = 0;
 			this->applySettingsButton->Text = L"Apply";
 			this->applySettingsButton->UseVisualStyleBackColor = true;
+			this->applySettingsButton->Click += gcnew System::EventHandler(this, &SettingsForm::applySettings);
+			// 
+			// PropertyName
+			// 
+			this->PropertyName->HeaderText = L"Property";
+			this->PropertyName->Name = L"PropertyName";
+			this->PropertyName->ReadOnly = true;
+			this->PropertyName->Width = 150;
+			// 
+			// PropertyValue
+			// 
+			this->PropertyValue->HeaderText = L"Value";
+			this->PropertyValue->Name = L"PropertyValue";
+			this->PropertyValue->Width = 150;
 			// 
 			// SettingsForm
 			// 
@@ -136,10 +156,26 @@ namespace EmailClient {
 			this->settingsGridSaveBSplit->Panel2->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->settingsGridSaveBSplit))->EndInit();
 			this->settingsGridSaveBSplit->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->settingsGrid))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
-	};
+		// Inside the SettingsForm class
+			private: System::Void applySettings(System::Object^ sender, System::EventArgs^ e) {
+			Config& configInstance = Config::getInstance();
+			for each (DataGridViewRow ^ row in settingsGrid->Rows) {
+				if (row->Cells["PropertyName"]->Value && row->Cells["PropertyValue"]->Value) {
+					std::string key = msclr::interop::marshal_as<std::string>(row->Cells["PropertyName"]->Value->ToString());
+					std::string value = msclr::interop::marshal_as<std::string>(row->Cells["PropertyValue"]->Value->ToString());
+					configInstance.setValue(key, value);
+				}
+			}
+			configInstance.saveConfig();
+			this->Close();
+			}
+
+private: System::Void settingsGrid_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
+};
 }
