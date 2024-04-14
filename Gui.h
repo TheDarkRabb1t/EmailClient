@@ -148,7 +148,7 @@ namespace EmailClient {
 			this->headerBodySplitContainer->Panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Gui::splitContainer1_Panel2_Paint_1);
 			this->headerBodySplitContainer->Panel2MinSize = 250;
 			this->headerBodySplitContainer->Size = System::Drawing::Size(1078, 558);
-			this->headerBodySplitContainer->SplitterDistance = 60;
+			this->headerBodySplitContainer->SplitterDistance = 59;
 			this->headerBodySplitContainer->TabIndex = 0;
 			// 
 			// systemButtons
@@ -222,7 +222,7 @@ namespace EmailClient {
 			// menuLettersSplitContainer.Panel2
 			// 
 			this->menuLettersSplitContainer->Panel2->Controls->Add(this->searchLetterListSplitContainer);
-			this->menuLettersSplitContainer->Size = System::Drawing::Size(1078, 494);
+			this->menuLettersSplitContainer->Size = System::Drawing::Size(1078, 495);
 			this->menuLettersSplitContainer->SplitterDistance = 359;
 			this->menuLettersSplitContainer->TabIndex = 0;
 			// 
@@ -308,7 +308,7 @@ namespace EmailClient {
 			this->searchLetterListSplitContainer->Panel2->Controls->Add(this->createNewMail);
 			this->searchLetterListSplitContainer->Panel2->Controls->Add(this->letterList);
 			this->searchLetterListSplitContainer->Panel2MinSize = 50;
-			this->searchLetterListSplitContainer->Size = System::Drawing::Size(715, 494);
+			this->searchLetterListSplitContainer->Size = System::Drawing::Size(715, 495);
 			this->searchLetterListSplitContainer->SplitterDistance = 25;
 			this->searchLetterListSplitContainer->TabIndex = 0;
 			// 
@@ -323,8 +323,9 @@ namespace EmailClient {
 			// 
 			// createNewMail
 			// 
+			this->createNewMail->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->createNewMail->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"createNewMail.Image")));
-			this->createNewMail->Location = System::Drawing::Point(654, 421);
+			this->createNewMail->Location = System::Drawing::Point(652, 409);
 			this->createNewMail->Margin = System::Windows::Forms::Padding(3, 3, 10, 10);
 			this->createNewMail->Name = L"createNewMail";
 			this->createNewMail->Size = System::Drawing::Size(49, 42);
@@ -340,7 +341,7 @@ namespace EmailClient {
 			this->letterList->HideSelection = false;
 			this->letterList->Location = System::Drawing::Point(0, 0);
 			this->letterList->Name = L"letterList";
-			this->letterList->Size = System::Drawing::Size(711, 461);
+			this->letterList->Size = System::Drawing::Size(711, 462);
 			this->letterList->TabIndex = 0;
 			this->letterList->UseCompatibleStateImageBehavior = false;
 			this->letterList->View = System::Windows::Forms::View::List;
@@ -397,17 +398,6 @@ namespace EmailClient {
 
 
 	private: System::Void trashCanButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void AdjustButtonPosition(System::Object^ sender, System::EventArgs^ e) {
-		int marginFromRight = 20; // Set the desired margin from the right
-		int marginFromBottom = 20; // Set the desired margin from the bottom
-
-		// Calculate the new location
-		int newX = this->ClientSize.Width - this->createNewMail->Width - marginFromRight;
-		int newY = this->ClientSize.Height - this->createNewMail->Height - marginFromBottom;
-
-		// Set the new location
-		this->createNewMail->Location = System::Drawing::Point(newX, newY);
 	}
 
 	private: System::Void openNewLetterForm(System::Object^ sender, System::EventArgs^ e) {
