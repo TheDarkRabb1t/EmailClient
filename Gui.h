@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "NewLetterForm.h"
+#include "SettingsForm.h"
 
 namespace EmailClient {
 
@@ -187,6 +188,7 @@ namespace EmailClient {
 			this->settingsButton->TabIndex = 1;
 			this->settingsButton->Text = L"settings";
 			this->settingsButton->UseVisualStyleBackColor = true;
+			this->settingsButton->Click += gcnew System::EventHandler(this, &Gui::openSettingsForm);
 			// 
 			// saveButton
 			// 
@@ -419,5 +421,9 @@ namespace EmailClient {
 		EmailClient::NewLetterForm^ newLetterForm = gcnew EmailClient::NewLetterForm();
 		newLetterForm->Show();
 	}
-	};
+	private: System::Void openSettingsForm(System::Object^ sender, System::EventArgs^ e) {
+		EmailClient::SettingsForm^ settingsForm = gcnew EmailClient::SettingsForm();
+		settingsForm->Show();
+	}
+};
 }

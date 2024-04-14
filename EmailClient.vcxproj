@@ -112,6 +112,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="SettingsForm.cpp" />
     <ClCompile Include="system\Config.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +131,9 @@
     <ClInclude Include="NewLetterForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="SettingsForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="system\AuthProfileManager.h" />
     <ClInclude Include="system\Config.h" />
     <ClInclude Include="system\service\AsyncEmailService.h" />
@@ -140,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewLetterForm.resx">
       <DependentUpon>NewLetterForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
