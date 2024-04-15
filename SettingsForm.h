@@ -112,6 +112,7 @@ namespace EmailClient {
 			this->settingsGrid->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->settingsGrid->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->settingsGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->settingsGrid->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
 				this->PropertyName,
@@ -128,13 +129,11 @@ namespace EmailClient {
 			this->PropertyName->HeaderText = L"Property";
 			this->PropertyName->Name = L"PropertyName";
 			this->PropertyName->ReadOnly = true;
-			this->PropertyName->Width = 150;
 			// 
 			// PropertyValue
 			// 
 			this->PropertyValue->HeaderText = L"Value";
 			this->PropertyValue->Name = L"PropertyValue";
-			this->PropertyValue->Width = 140;
 			// 
 			// applySettingsButton
 			// 
