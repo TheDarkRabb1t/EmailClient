@@ -154,7 +154,7 @@ namespace EmailClient {
 			this->Controls->Add(this->settingsGridSaveBSplit);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"SettingsForm";
-			this->Text = L"SettingsForm";
+			this->Text = L"Settings";
 			this->settingsGridSaveBSplit->Panel1->ResumeLayout(false);
 			this->settingsGridSaveBSplit->Panel2->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->settingsGridSaveBSplit))->EndInit();

@@ -37,7 +37,8 @@ namespace EmailClient {
 		}
 
 	private: System::Windows::Forms::Panel^ panel1;
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::DataGridView^ profileGrid;
+
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ TitleColumn;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ EmailColumn;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ LoginColumn;
@@ -56,7 +57,7 @@ namespace EmailClient {
 			List<ProfileDTO^>^ profiles = AuthProfileManager::getInstance()->getProfiles();
 			for each (ProfileDTO ^ profile in profiles)
 			{
-				dataGridView1->Rows->Add(profile->Title, profile->Email, profile->Login, profile->Password);
+				profileGrid->Rows->Add(profile->Title, profile->Email, profile->Login, profile->Password);
 			}
 		}
 
@@ -80,23 +81,23 @@ namespace EmailClient {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(ProfilesForm::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->saveProfilesButton = (gcnew System::Windows::Forms::Button());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->profileGrid = (gcnew System::Windows::Forms::DataGridView());
 			this->TitleColumn = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->EmailColumn = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->LoginColumn = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->PasswordColumn = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->panel1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->profileGrid))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel1
 			// 
 			this->panel1->Controls->Add(this->saveProfilesButton);
-			this->panel1->Controls->Add(this->dataGridView1);
+			this->panel1->Controls->Add(this->profileGrid);
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(366, 272);
+			this->panel1->Size = System::Drawing::Size(416, 272);
 			this->panel1->TabIndex = 1;
 			// 
 			// saveProfilesButton
@@ -104,25 +105,25 @@ namespace EmailClient {
 			this->saveProfilesButton->Dock = System::Windows::Forms::DockStyle::Bottom;
 			this->saveProfilesButton->Location = System::Drawing::Point(0, 249);
 			this->saveProfilesButton->Name = L"saveProfilesButton";
-			this->saveProfilesButton->Size = System::Drawing::Size(366, 23);
+			this->saveProfilesButton->Size = System::Drawing::Size(416, 23);
 			this->saveProfilesButton->TabIndex = 1;
 			this->saveProfilesButton->Text = L"Save";
 			this->saveProfilesButton->UseVisualStyleBackColor = true;
 			this->saveProfilesButton->Click += gcnew System::EventHandler(this, &ProfilesForm::saveProfilesButton_Click);
 			// 
-			// dataGridView1
+			// profileGrid
 			// 
-			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+			this->profileGrid->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
+			this->profileGrid->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->profileGrid->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->TitleColumn,
 					this->EmailColumn, this->LoginColumn, this->PasswordColumn
 			});
-			this->dataGridView1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->dataGridView1->Location = System::Drawing::Point(0, 0);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(366, 272);
-			this->dataGridView1->TabIndex = 0;
+			this->profileGrid->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->profileGrid->Location = System::Drawing::Point(0, 0);
+			this->profileGrid->Name = L"profileGrid";
+			this->profileGrid->Size = System::Drawing::Size(416, 272);
+			this->profileGrid->TabIndex = 0;
 			// 
 			// TitleColumn
 			// 
@@ -148,13 +149,13 @@ namespace EmailClient {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(366, 272);
+			this->ClientSize = System::Drawing::Size(416, 272);
 			this->Controls->Add(this->panel1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"ProfilesForm";
-			this->Text = L"ProfilesForm";
+			this->Text = L"Profiles";
 			this->panel1->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->profileGrid))->EndInit();
 			this->ResumeLayout(false);
 
 		}
