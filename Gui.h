@@ -3,6 +3,8 @@
 #include "SettingsForm.h"
 #include "AboutWindow.h"
 #include "ProfilesForm.h"
+#include "system/AuthProfileManager.h"
+#include "model/ProfileDto.h"
 
 namespace EmailClient {
 
@@ -22,6 +24,8 @@ namespace EmailClient {
 		Gui(void)
 		{
 			InitializeComponent();
+			updateProfileBox();
+
 		}
 
 	protected:
@@ -38,11 +42,6 @@ namespace EmailClient {
 	private: System::Windows::Forms::SplitContainer^ headerBodySplitContainer;
 	private: System::Windows::Forms::GroupBox^ systemButtons;
 	private: System::Windows::Forms::Button^ saveButton;
-	protected:
-
-	protected:
-
-
 
 	private: System::Windows::Forms::Button^ settingsButton;
 
@@ -61,17 +60,14 @@ namespace EmailClient {
 	private: System::Windows::Forms::Button^ sentButton;
 
 	private: System::Windows::Forms::Button^ incomingButton;
-
-
-
 	private: System::Windows::Forms::ListView^ letterList;
 	private: System::Windows::Forms::Button^ spamButton;
 	private: System::Windows::Forms::Button^ draftedButton;
 
-
 	private: System::Windows::Forms::RichTextBox^ searchTextField;
 
 	private: System::Windows::Forms::Button^ createNewMail;
+	private: System::Windows::Forms::ComboBox^ currentProfileBox;
 	private: System::ComponentModel::IContainer^ components;
 
 
@@ -101,6 +97,7 @@ namespace EmailClient {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Gui::typeid));
 			this->headerBodySplitContainer = (gcnew System::Windows::Forms::SplitContainer());
 			this->systemButtons = (gcnew System::Windows::Forms::GroupBox());
+			this->currentProfileBox = (gcnew System::Windows::Forms::ComboBox());
 			this->infoButton = (gcnew System::Windows::Forms::Button());
 			this->settingsButton = (gcnew System::Windows::Forms::Button());
 			this->saveButton = (gcnew System::Windows::Forms::Button());
@@ -154,6 +151,7 @@ namespace EmailClient {
 			// 
 			// systemButtons
 			// 
+			this->systemButtons->Controls->Add(this->currentProfileBox);
 			this->systemButtons->Controls->Add(this->infoButton);
 			this->systemButtons->Controls->Add(this->settingsButton);
 			this->systemButtons->Controls->Add(this->saveButton);
@@ -167,6 +165,17 @@ namespace EmailClient {
 			this->systemButtons->TabStop = false;
 			this->systemButtons->Text = L"System";
 			this->systemButtons->Enter += gcnew System::EventHandler(this, &Gui::systemButtons_Enter);
+			// 
+			// currentProfileBox
+			// 
+			this->currentProfileBox->Dock = System::Windows::Forms::DockStyle::Right;
+			this->currentProfileBox->FormattingEnabled = true;
+			this->currentProfileBox->Location = System::Drawing::Point(936, 16);
+			this->currentProfileBox->Name = L"currentProfileBox";
+			this->currentProfileBox->Size = System::Drawing::Size(139, 21);
+			this->currentProfileBox->TabIndex = 3;
+			this->currentProfileBox->Text = L"Current Profile";
+			this->currentProfileBox->SelectedIndexChanged += gcnew System::EventHandler(this, &Gui::selectedProfileChanged);
 			// 
 			// infoButton
 			// 
@@ -419,7 +428,22 @@ namespace EmailClient {
 	}
 	private: System::Void openProfilesWindow(System::Object^ sender, System::EventArgs^ e) {
 		EmailClient::ProfilesForm^ profilesForm = gcnew EmailClient::ProfilesForm();
+		profilesForm->ProfilesChanged += gcnew ProfilesChangedEventHandler(this, &Gui::updateProfileBox);
 		profilesForm->Show();
+	}
+	private: System::Void updateProfileBox() {
+		currentProfileBox->Items->Clear();
+		List<ProfileDTO^>^ profiles = AuthProfileManager::getInstance()->getProfiles();
+		for each (ProfileDTO ^ profile in profiles) {
+			currentProfileBox->Items->Add(profile->Title);
+		}
+	}
+
+	private: System::Void selectedProfileChanged(System::Object^ sender, System::EventArgs^ e) {
+		String^ selectedProfileTitle = dynamic_cast<String^>(currentProfileBox->SelectedItem);
+		if (selectedProfileTitle != nullptr) {
+			AuthProfileManager::getInstance()->setCurrentProfileByTitle(selectedProfileTitle);
+		}
 	}
 };
 }

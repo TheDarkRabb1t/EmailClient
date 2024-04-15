@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+
 namespace EmailClient {
 
 	using namespace System;
@@ -9,12 +10,14 @@ namespace EmailClient {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
+	public delegate void ProfilesChangedEventHandler();
 	/// <summary>
 	/// Summary for ProfilesForm
 	/// </summary>
 	public ref class ProfilesForm : public System::Windows::Forms::Form
 	{
 	public:
+		event ProfilesChangedEventHandler^ ProfilesChanged;
 		ProfilesForm(void)
 		{
 			InitializeComponent();
@@ -79,6 +82,7 @@ namespace EmailClient {
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->profileGrid))->BeginInit();
 			this->SuspendLayout();
+			auto topLeftHeaderCell = this->profileGrid->TopLeftHeaderCell;
 			// 
 			// panel1
 			// 
@@ -169,8 +173,8 @@ namespace EmailClient {
 					AuthProfileManager::getInstance()->addNewProfileDTO(profile);
 
 				}
-
 				AuthProfileManager::getInstance()->SaveProfilesToFile();
+				ProfilesChanged();
 				this->Close();
 			}
 

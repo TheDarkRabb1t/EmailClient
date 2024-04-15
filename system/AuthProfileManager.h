@@ -78,6 +78,15 @@ public:
         }
     }
 
+    void setCurrentProfileByTitle(System::String^ title) {
+        for (int i = 0; i < profiles->Count; i++) {
+            if (profiles[i]->Title == title) {
+                setCurrentProfile(i);
+                return;
+            }
+        }
+    }
+
     ProfileDTO^ getCurrentProfile() {
         if (currentProfile >= 0 && currentProfile < profiles->Count) {
             return profiles[currentProfile];
