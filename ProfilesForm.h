@@ -61,16 +61,6 @@ namespace EmailClient {
 			}
 		}
 
-		System::Void saveProfilesButton_Click(System::Object^ sender, System::EventArgs^ e)
-		{
-			SaveProfiles();
-		}
-
-		System::Void SaveProfiles()
-		{
-			AuthProfileManager::getInstance()->SaveProfilesToFile();
-		}
-
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Required method for Designer support - do not modify
@@ -109,7 +99,7 @@ namespace EmailClient {
 			this->saveProfilesButton->TabIndex = 1;
 			this->saveProfilesButton->Text = L"Save";
 			this->saveProfilesButton->UseVisualStyleBackColor = true;
-			this->saveProfilesButton->Click += gcnew System::EventHandler(this, &ProfilesForm::saveProfilesButton_Click);
+			this->saveProfilesButton->Click += gcnew System::EventHandler(this, &ProfilesForm::saveProflies);
 			// 
 			// profileGrid
 			// 
@@ -160,5 +150,29 @@ namespace EmailClient {
 
 		}
 #pragma endregion
+			private: System::Void saveProflies(System::Object^ sender, System::EventArgs^ e) {
+				for each (DataGridViewRow ^ row in profileGrid->Rows) {
+					if (row->IsNewRow) continue;
+
+					System::String^ title = safe_cast<System::String^>(row->Cells["TitleColumn"]->Value);
+					System::String^ email = safe_cast<System::String^>(row->Cells["EmailColumn"]->Value);
+					System::String^ login = safe_cast<System::String^>(row->Cells["LoginColumn"]->Value);
+					System::String^ password = safe_cast<System::String^>(row->Cells["PasswordColumn"]->Value);
+
+					ProfileDTO^ profile = gcnew ProfileDTO();
+					if (profile != nullptr) {
+						profile->Title = title;
+						profile->Email = email;
+						profile->Login = login;
+						profile->Password = password;
+					}
+					AuthProfileManager::getInstance()->addNewProfileDTO(profile);
+
+				}
+
+				AuthProfileManager::getInstance()->SaveProfilesToFile();
+				this->Close();
+			}
+
 };
 }

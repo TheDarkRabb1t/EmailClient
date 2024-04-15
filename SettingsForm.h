@@ -122,7 +122,6 @@ namespace EmailClient {
 			this->settingsGrid->Name = L"settingsGrid";
 			this->settingsGrid->Size = System::Drawing::Size(318, 400);
 			this->settingsGrid->TabIndex = 0;
-			this->settingsGrid->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &SettingsForm::settingsGrid_CellContentClick);
 			// 
 			// PropertyName
 			// 
@@ -164,7 +163,6 @@ namespace EmailClient {
 
 		}
 #pragma endregion
-		// Inside the SettingsForm class
 			private: System::Void applySettings(System::Object^ sender, System::EventArgs^ e) {
 			Config& configInstance = Config::getInstance();
 			for each (DataGridViewRow ^ row in settingsGrid->Rows) {
@@ -177,8 +175,5 @@ namespace EmailClient {
 			configInstance.saveConfig();
 			this->Close();
 			}
-
-private: System::Void settingsGrid_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-}
 };
 }

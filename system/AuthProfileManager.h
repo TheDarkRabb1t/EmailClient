@@ -39,6 +39,11 @@ public:
         }
         return nullptr;
     }
+    void addNewProfileDTO(ProfileDTO^ profile) {
+        if (getProfileByTitle(profile->Title)==nullptr) {
+            this->profiles->Add(profile);
+        }
+    }
 
     ProfileDTO^ getProfileByTitle(System::String^ title) {
         for each (ProfileDTO ^ profile in profiles) {
