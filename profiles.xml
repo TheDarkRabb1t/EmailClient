@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ArrayOfProfileDTO xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ProfileDTO>
+    <Password>Zxcadmin1</Password>
+    <Login>ctdrtest@outlook.com</Login>
+    <Email>ctdrtest@outlook.com</Email>
+    <Title>Outlook</Title>
+  </ProfileDTO>
+</ArrayOfProfileDTO>

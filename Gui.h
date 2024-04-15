@@ -2,6 +2,7 @@
 #include "NewLetterForm.h"
 #include "SettingsForm.h"
 #include "AboutWindow.h"
+#include "ProfilesForm.h"
 
 namespace EmailClient {
 
@@ -207,6 +208,7 @@ namespace EmailClient {
 			this->saveButton->Text = L"profiles";
 			this->saveButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->saveButton->UseVisualStyleBackColor = true;
+			this->saveButton->Click += gcnew System::EventHandler(this, &Gui::openProfilesWindow);
 			// 
 			// menuLettersSplitContainer
 			// 
@@ -413,7 +415,11 @@ namespace EmailClient {
 		EmailClient::AboutWindow^ aboutWindow = gcnew EmailClient::AboutWindow();
 		aboutWindow->Show();
 	}
-private: System::Void systemButtons_Enter(System::Object^ sender, System::EventArgs^ e) {
-}
+	private: System::Void systemButtons_Enter(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void openProfilesWindow(System::Object^ sender, System::EventArgs^ e) {
+		EmailClient::ProfilesForm^ profilesForm = gcnew EmailClient::ProfilesForm();
+		profilesForm->Show();
+	}
 };
 }

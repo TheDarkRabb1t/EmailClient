@@ -50,6 +50,9 @@
     <ClInclude Include="AboutWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ProfilesForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\buttons\about.png">

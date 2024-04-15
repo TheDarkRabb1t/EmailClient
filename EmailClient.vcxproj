@@ -133,6 +133,9 @@
     <ClInclude Include="NewLetterForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ProfilesForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="SettingsForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

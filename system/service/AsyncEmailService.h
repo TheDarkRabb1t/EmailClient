@@ -50,7 +50,7 @@ namespace EmailClient
                 OutgoingMailDTO^ oMailDTO = emailsToSend[0];
                 emailsToSend->RemoveAt(0);
                 
-                SmtpClient^ client = AuthProfileManager::getInstance()->getSmtpClientByProfileTitle(oMailDTO->profile->title);
+                SmtpClient^ client = AuthProfileManager::getInstance()->getSmtpClientByProfileTitle(oMailDTO->profile->Title);
                 client->Send(oMailDTO->message);
             }
         }

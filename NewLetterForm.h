@@ -195,7 +195,7 @@ namespace EmailClient {
 
 		ProfileDTO^ senderProfile = AuthProfileManager::getInstance()->getCurrentProfile();
 		MailMessage^ email = gcnew System::Net::Mail::MailMessage();
-		email->From = senderProfile->email;
+		email->From = senderProfile->GetMailAddress();
 		email->Subject = emailSubject->Text;
 		email->Body = emailBody->Text;
 		email->To->Add(emailTo->Text);

@@ -118,17 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="createNewMail.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAASdJREFUSEvt0i9LBEEcxvFVEREODAaLiBgsl3wFGjQajfoWjFab1uuCYLRpE5PJ
-        ZLMYFMRiUASDiPjv+z12ltuVuZ3jODDcA59jZod9frvLZcOk5B4/A2J3e/GNZxxiv0922GWn3e2fA9zh
-        A7sYRa8ZwTbe8QAHFQMsncJxvj/DDFIzjVN470m+t7M0IGQLb3jEmhdqsgyf2Cf3DXwTEx1gmrjGF1oY
-        RzVj8L5P3GAJnek6wEzCcs8vMY+QWVzAsyM0UE3tgJANvORcr+MJr9hELMkDzCKu4F9Prr3WLQtYdZEy
-        wExgL+e6Gsss/ZPUAXWJ9vzrAX6WwB7/UWFffK5+BnhvTNFZ2vSYgb9BZ6I9HpxjJ8EcYokOuIWHKVYQ
-        S+mzDJOYLPsFgz6OSD7Q8DoAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="infoButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -159,7 +148,7 @@
   <data name="saveButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAAmhJREFUSEvNlU1rE1EYhZOI4DeSab4zyT9w0Yi4UjcKoriQCkJ34kKpolU0aX+H
+        DAAACwwBP0AiyAAAAmhJREFUSEvNlU1rE1EYhZOI4DeSab4zyT9w0Yi4UjcKoriQCkJ34kKpolU0aX+H
         iMWVLhSqrQuttlqiUr/q3/CP+JzJ6aTTpCY1LjxwuO973o975947M6n/CqVSaSyfzxcajcZuS6OhWCzm
         aNoql8srjK/hE+ynjEvwA2wWCoW803eEDMUzNHtbqVTO9VuxNOLn4TK8h5TpRAYgl8sdoPkLiqYsRQjD
         sIw+yYSXarVayXIE9BvkL1Sr1b2WtkVGiWzNWfsR0K7TpM14zfYq4xWHI6gGbRFz+yehcFYN7EZgVcfQ
@@ -216,6 +205,17 @@
         OMU7NtCO2rTB895whjFk07DAdMLhHj/GINL04wge20YXalNYkGYGjwnX07jHE+aQl+ACM4wT+NOTa/c1
         yhAmXYQUmA6sJFwHJ7QgL73Je27KFFRwg5F4KydlCnwO17iDP+00fvc+gzhlv6J6JVUzyxaY2pI/LzDZ
         kh8FB1gKMIB6mYXH1+Ef0JlriHMOd4SYQL0cIvs5/4wLaKYoUfQFUoWRlJRyjp0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="createNewMail.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAASdJREFUSEvt0i9LBEEcxvFVEREODAaLiBgsl3wFGjQajfoWjFab1uuCYLRpE5PJ
+        ZLMYFMRiUASDiPjv+z12ltuVuZ3jODDcA59jZod9frvLZcOk5B4/A2J3e/GNZxxiv0922GWn3e2fA9zh
+        A7sYRa8ZwTbe8QAHFQMsncJxvj/DDFIzjVN470m+t7M0IGQLb3jEmhdqsgyf2Cf3DXwTEx1gmrjGF1oY
+        RzVj8L5P3GAJnek6wEzCcs8vMY+QWVzAsyM0UE3tgJANvORcr+MJr9hELMkDzCKu4F9Prr3WLQtYdZEy
+        wExgL+e6Gsss/ZPUAXWJ9vzrAX6WwB7/UWFffK5+BnhvTNFZ2vSYgb9BZ6I9HpxjJ8EcYokOuIWHKVYQ
+        S+mzDJOYLPsFgz6OSD7Q8DoAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
