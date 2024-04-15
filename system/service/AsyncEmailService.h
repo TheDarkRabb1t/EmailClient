@@ -5,10 +5,20 @@
 #include "../AuthProfileManager.h"
 #include <string>
 
+
 using System::Collections::Generic::List;
 using System::Net::Mail::MailMessage;
 using System::Net::Mail::SmtpClient;
 using System::Threading::TimerCallback;
+using System::Exception;
+using System::Console;
+
+using EAGetMail::Mail;
+using EAGetMail::MailInfo;
+using EAGetMail::ServerProtocol;
+using EAGetMail::MailServer;
+using EAGetMail::MailClient;
+
 
 namespace EmailClient
 {
@@ -59,16 +69,16 @@ namespace EmailClient
     public ref class AsyncEmailReceiver
     {
     private:
-        List<MailMessage^>^ receivedEmails;
+        List<Mail^>^ receivedEmails;
         System::Threading::Timer^ timer;
         Config& config = Config::getInstance();
 
         static AsyncEmailReceiver^ instance;
         AsyncEmailReceiver()
         {
-            receivedEmails = gcnew List<MailMessage^>();
+            receivedEmails = gcnew List<Mail^>();
             int emailReceiveScheduleMilis = stoi(config.getValue("emailReceiveScheduleMilis"));
-            timer = gcnew System::Threading::Timer(gcnew TimerCallback(this, &AsyncEmailReceiver::ReceiveEmails), nullptr, 0, emailReceiveScheduleMilis);
+            timer = gcnew System::Threading::Timer(gcnew TimerCallback(this, &AsyncEmailReceiver::RetrieveEmails), nullptr, 0, emailReceiveScheduleMilis);
         }
     public:
         static AsyncEmailReceiver^ getInstance()
@@ -80,15 +90,35 @@ namespace EmailClient
             return instance;
         }
 
-        List<MailMessage^>^ GetReceivedEmails()
+        List<Mail^>^ GetReceivedEmails()
         {
             return receivedEmails;
         }
 
     private:
-        void ReceiveEmails(Object^ state)
+        void RetrieveEmails(Object^ state)
         {
-            // Your existing code...
+            ProfileDTO^ currentProfile = AuthProfileManager::getInstance()->getCurrentProfile();
+            MailServer^ oServer = gcnew MailServer("outlook.office365.com", currentProfile->Email, currentProfile->Password, ServerProtocol::Imap4);
+            MailClient^ oClient = gcnew MailClient("TryIt");
+            oServer->SSLConnection = true;
+            oServer->Port = 993;
+
+            try {
+                oClient->Connect(oServer);
+                array<EAGetMail::MailInfo^>^ mailInfos = oClient->GetMailInfos();
+                for (int i = 0; i < 10 && i < mailInfos->Length; i++)
+                {
+                    MailInfo^ info = dynamic_cast<MailInfo^>(mailInfos->GetValue(i));
+                    Mail^ oMail = oClient->GetMail(info);
+                    receivedEmails->Add(oMail);
+                }
+            }
+            catch (Exception^ ep)
+            {
+                Console::WriteLine("Error: {0}", ep->Message);
+            }
         }
+
     };
 }

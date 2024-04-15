@@ -86,4 +86,5 @@ std::string Config::trim(const std::string& str) {
 void Config::generateDefaultConfig() {
     configMap["emailReceiveScheduleMilis"] = "45000";
     configMap["emailSendScheduleMilis"] = "15000";
+    configMap["recentlyReceivedMailsCount"] = "10";
 }

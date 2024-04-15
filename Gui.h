@@ -61,7 +61,8 @@ namespace EmailClient {
 
 	private: System::Windows::Forms::Button^ incomingButton;
 	private: System::Windows::Forms::ListView^ letterList;
-	private: System::Windows::Forms::Button^ spamButton;
+	private: System::Windows::Forms::Button^ refreshButton;
+
 	private: System::Windows::Forms::Button^ draftedButton;
 
 	private: System::Windows::Forms::RichTextBox^ searchTextField;
@@ -103,7 +104,7 @@ namespace EmailClient {
 			this->saveButton = (gcnew System::Windows::Forms::Button());
 			this->menuLettersSplitContainer = (gcnew System::Windows::Forms::SplitContainer());
 			this->itemsMenu = (gcnew System::Windows::Forms::GroupBox());
-			this->spamButton = (gcnew System::Windows::Forms::Button());
+			this->refreshButton = (gcnew System::Windows::Forms::Button());
 			this->draftedButton = (gcnew System::Windows::Forms::Button());
 			this->sentButton = (gcnew System::Windows::Forms::Button());
 			this->incomingButton = (gcnew System::Windows::Forms::Button());
@@ -239,7 +240,7 @@ namespace EmailClient {
 			// 
 			// itemsMenu
 			// 
-			this->itemsMenu->Controls->Add(this->spamButton);
+			this->itemsMenu->Controls->Add(this->refreshButton);
 			this->itemsMenu->Controls->Add(this->draftedButton);
 			this->itemsMenu->Controls->Add(this->sentButton);
 			this->itemsMenu->Controls->Add(this->incomingButton);
@@ -252,17 +253,18 @@ namespace EmailClient {
 			this->itemsMenu->TabStop = false;
 			this->itemsMenu->Text = L"Mail Types";
 			// 
-			// spamButton
+			// refreshButton
 			// 
-			this->spamButton->Dock = System::Windows::Forms::DockStyle::Top;
-			this->spamButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"spamButton.Image")));
-			this->spamButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->spamButton->Location = System::Drawing::Point(3, 112);
-			this->spamButton->Name = L"spamButton";
-			this->spamButton->Size = System::Drawing::Size(353, 32);
-			this->spamButton->TabIndex = 3;
-			this->spamButton->Text = L"Spam";
-			this->spamButton->UseVisualStyleBackColor = true;
+			this->refreshButton->Dock = System::Windows::Forms::DockStyle::Top;
+			this->refreshButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"refreshButton.Image")));
+			this->refreshButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->refreshButton->Location = System::Drawing::Point(3, 112);
+			this->refreshButton->Name = L"refreshButton";
+			this->refreshButton->Size = System::Drawing::Size(353, 32);
+			this->refreshButton->TabIndex = 3;
+			this->refreshButton->Text = L"REFRESH";
+			this->refreshButton->UseVisualStyleBackColor = true;
+			this->refreshButton->Click += gcnew System::EventHandler(this, &Gui::refreshMails);
 			// 
 			// draftedButton
 			// 
@@ -404,6 +406,9 @@ namespace EmailClient {
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void GUI_Load(System::Object^ sender, System::EventArgs^ e) {
+		if (AuthProfileManager::getInstance()->getCurrentProfile()!=nullptr) {
+			AsyncEmailReceiver::getInstance();
+		}
 	}
 	private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -445,5 +450,25 @@ namespace EmailClient {
 			AuthProfileManager::getInstance()->setCurrentProfileByTitle(selectedProfileTitle);
 		}
 	}
+	private: System::Void refreshMails(System::Object^ sender, System::EventArgs^ e) {
+		updateLetterList(AsyncEmailReceiver::getInstance()->GetReceivedEmails());
+	}
+	void updateLetterList(List<Mail^>^ mails) {
+	    letterList->BeginUpdate();
+	    letterList->Items->Clear(); // Clear existing items
+	
+	    for each (Mail^ mail in mails) {
+	        System::Windows::Forms::ListViewItem^ item = gcnew System::Windows::Forms::ListViewItem();
+	        item->Text = mail->Subject; // Assuming Subject is a property of the Mail class
+	        item->SubItems->Add(mail->From->ToString()); // Assuming Sender is a property of the Mail class
+	        item->SubItems->Add(mail->SentDate.ToString()); // Assuming Date is a property of the Mail class
+	        // Add more subitems as needed
+	
+	        letterList->Items->Add(item);
+	    }
+	
+	    letterList->EndUpdate();
+	}
+
 };
 }

@@ -115,6 +115,9 @@
     <ClCompile Include="system\Config.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="EAGetMail">
+      <HintPath>packages\EAGetMail.5.3.5\lib\net472\EAGetMail.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -172,6 +175,9 @@
     <Image Include="resources\buttons\spam.png" />
     <Image Include="resources\icons\app_128.ico" />
     <Image Include="resources\icons\app_64.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
