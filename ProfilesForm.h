@@ -77,13 +77,14 @@ namespace EmailClient {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(ProfilesForm::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->saveProfilesButton = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->TitleColumn = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->EmailColumn = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->LoginColumn = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->PasswordColumn = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->saveProfilesButton = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
@@ -97,6 +98,17 @@ namespace EmailClient {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(366, 272);
 			this->panel1->TabIndex = 1;
+			// 
+			// saveProfilesButton
+			// 
+			this->saveProfilesButton->Dock = System::Windows::Forms::DockStyle::Bottom;
+			this->saveProfilesButton->Location = System::Drawing::Point(0, 249);
+			this->saveProfilesButton->Name = L"saveProfilesButton";
+			this->saveProfilesButton->Size = System::Drawing::Size(366, 23);
+			this->saveProfilesButton->TabIndex = 1;
+			this->saveProfilesButton->Text = L"Save";
+			this->saveProfilesButton->UseVisualStyleBackColor = true;
+			this->saveProfilesButton->Click += gcnew System::EventHandler(this, &ProfilesForm::saveProfilesButton_Click);
 			// 
 			// dataGridView1
 			// 
@@ -131,24 +143,13 @@ namespace EmailClient {
 			this->PasswordColumn->HeaderText = L"Password";
 			this->PasswordColumn->Name = L"PasswordColumn";
 			// 
-			// saveProfilesButton
-			// 
-			this->saveProfilesButton->Dock = System::Windows::Forms::DockStyle::Bottom;
-			this->saveProfilesButton->Location = System::Drawing::Point(0, 249);
-			this->saveProfilesButton->Name = L"saveProfilesButton";
-			this->saveProfilesButton->Size = System::Drawing::Size(366, 23);
-			this->saveProfilesButton->TabIndex = 1;
-			this->saveProfilesButton->Text = L"Save";
-			this->saveProfilesButton->UseVisualStyleBackColor = true;
-			this->saveProfilesButton->Click += gcnew System::EventHandler(this, &ProfilesForm::saveProfilesButton_Click);
-
-			// 
 			// ProfilesForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(366, 272);
 			this->Controls->Add(this->panel1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"ProfilesForm";
 			this->Text = L"ProfilesForm";
 			this->panel1->ResumeLayout(false);

@@ -60,9 +60,9 @@ namespace EmailClient {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AboutWindow::typeid));
 			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
 			this->splitContainer2 = (gcnew System::Windows::Forms::SplitContainer());
-			this->aboutBodyText = (gcnew System::Windows::Forms::TextBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->appLogoPicture = (gcnew System::Windows::Forms::PictureBox());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->aboutBodyText = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->BeginInit();
 			this->splitContainer1->Panel1->SuspendLayout();
 			this->splitContainer1->Panel2->SuspendLayout();
@@ -109,19 +109,16 @@ namespace EmailClient {
 			this->splitContainer2->SplitterDistance = 140;
 			this->splitContainer2->TabIndex = 0;
 			// 
-			// aboutBodyText
+			// appLogoPicture
 			// 
-			this->aboutBodyText->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->aboutBodyText->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->aboutBodyText->Location = System::Drawing::Point(0, 0);
-			this->aboutBodyText->Multiline = true;
-			this->aboutBodyText->Name = L"aboutBodyText";
-			this->aboutBodyText->ReadOnly = true;
-			this->aboutBodyText->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->aboutBodyText->Size = System::Drawing::Size(348, 206);
-			this->aboutBodyText->TabIndex = 0;
-			this->aboutBodyText->Text = resources->GetString(L"aboutBodyText.Text");
+			this->appLogoPicture->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->appLogoPicture->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"appLogoPicture.Image")));
+			this->appLogoPicture->Location = System::Drawing::Point(0, 0);
+			this->appLogoPicture->Name = L"appLogoPicture";
+			this->appLogoPicture->Size = System::Drawing::Size(140, 115);
+			this->appLogoPicture->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
+			this->appLogoPicture->TabIndex = 0;
+			this->appLogoPicture->TabStop = false;
 			// 
 			// textBox1
 			// 
@@ -136,16 +133,19 @@ namespace EmailClient {
 				L"";
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &AboutWindow::textBox1_TextChanged);
 			// 
-			// appLogoPicture
+			// aboutBodyText
 			// 
-			this->appLogoPicture->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->appLogoPicture->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"appLogoPicture.Image")));
-			this->appLogoPicture->Location = System::Drawing::Point(0, 0);
-			this->appLogoPicture->Name = L"appLogoPicture";
-			this->appLogoPicture->Size = System::Drawing::Size(140, 115);
-			this->appLogoPicture->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
-			this->appLogoPicture->TabIndex = 0;
-			this->appLogoPicture->TabStop = false;
+			this->aboutBodyText->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->aboutBodyText->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->aboutBodyText->Location = System::Drawing::Point(0, 0);
+			this->aboutBodyText->Multiline = true;
+			this->aboutBodyText->Name = L"aboutBodyText";
+			this->aboutBodyText->ReadOnly = true;
+			this->aboutBodyText->RightToLeft = System::Windows::Forms::RightToLeft::No;
+			this->aboutBodyText->Size = System::Drawing::Size(348, 206);
+			this->aboutBodyText->TabIndex = 0;
+			this->aboutBodyText->Text = resources->GetString(L"aboutBodyText.Text");
 			// 
 			// AboutWindow
 			// 

@@ -76,9 +76,9 @@ namespace EmailClient {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(SettingsForm::typeid));
 			this->settingsGridSaveBSplit = (gcnew System::Windows::Forms::SplitContainer());
 			this->settingsGrid = (gcnew System::Windows::Forms::DataGridView());
-			this->applySettingsButton = (gcnew System::Windows::Forms::Button());
 			this->PropertyName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->PropertyValue = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->applySettingsButton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->settingsGridSaveBSplit))->BeginInit();
 			this->settingsGridSaveBSplit->Panel1->SuspendLayout();
 			this->settingsGridSaveBSplit->Panel2->SuspendLayout();
@@ -123,17 +123,6 @@ namespace EmailClient {
 			this->settingsGrid->TabIndex = 0;
 			this->settingsGrid->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &SettingsForm::settingsGrid_CellContentClick);
 			// 
-			// applySettingsButton
-			// 
-			this->applySettingsButton->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->applySettingsButton->Location = System::Drawing::Point(0, 0);
-			this->applySettingsButton->Name = L"applySettingsButton";
-			this->applySettingsButton->Size = System::Drawing::Size(318, 49);
-			this->applySettingsButton->TabIndex = 0;
-			this->applySettingsButton->Text = L"Apply";
-			this->applySettingsButton->UseVisualStyleBackColor = true;
-			this->applySettingsButton->Click += gcnew System::EventHandler(this, &SettingsForm::applySettings);
-			// 
 			// PropertyName
 			// 
 			this->PropertyName->HeaderText = L"Property";
@@ -146,6 +135,17 @@ namespace EmailClient {
 			this->PropertyValue->HeaderText = L"Value";
 			this->PropertyValue->Name = L"PropertyValue";
 			this->PropertyValue->Width = 140;
+			// 
+			// applySettingsButton
+			// 
+			this->applySettingsButton->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->applySettingsButton->Location = System::Drawing::Point(0, 0);
+			this->applySettingsButton->Name = L"applySettingsButton";
+			this->applySettingsButton->Size = System::Drawing::Size(318, 49);
+			this->applySettingsButton->TabIndex = 0;
+			this->applySettingsButton->Text = L"Apply";
+			this->applySettingsButton->UseVisualStyleBackColor = true;
+			this->applySettingsButton->Click += gcnew System::EventHandler(this, &SettingsForm::applySettings);
 			// 
 			// SettingsForm
 			// 
