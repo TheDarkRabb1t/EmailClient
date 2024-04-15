@@ -38,6 +38,9 @@ public:
     System::Net::Mail::MailAddress^ GetMailAddress() {
         return gcnew System::Net::Mail::MailAddress(email);
     }
+    void SetMailAddress(System::Net::Mail::MailAddress^ mailAddress) {
+        email = mailAddress->Address;
+    }
 
 private:
     // Private fields

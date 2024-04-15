@@ -153,6 +153,9 @@
     <EmbeddedResource Include="NewLetterForm.resx">
       <DependentUpon>NewLetterForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProfilesForm.resx">
+      <DependentUpon>ProfilesForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.h</DependentUpon>
     </EmbeddedResource>

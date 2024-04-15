@@ -84,8 +84,6 @@ std::string Config::trim(const std::string& str) {
 
 
 void Config::generateDefaultConfig() {
-    configMap["login_outlook"] = "ctdrtest@outlook.com";
-    configMap["password_outlook"] = "Zxcadmin1";
     configMap["emailReceiveScheduleMilis"] = "45000";
     configMap["emailSendScheduleMilis"] = "15000";
 }
