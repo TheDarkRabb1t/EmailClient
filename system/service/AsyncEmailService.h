@@ -4,6 +4,8 @@
 #include "../../model/OutgoingEmailDTO.h"
 #include "../AuthProfileManager.h"
 #include <string>
+#include <msclr\marshal.h>
+#include <msclr\marshal_cppstd.h>
 
 
 using System::Collections::Generic::List;
@@ -103,15 +105,21 @@ namespace EmailClient
             MailClient^ oClient = gcnew MailClient("TryIt");
             oServer->SSLConnection = true;
             oServer->Port = 993;
-
             try {
+                List<Mail^>^ mails = gcnew List<Mail^>();
                 oClient->Connect(oServer);
                 array<EAGetMail::MailInfo^>^ mailInfos = oClient->GetMailInfos();
+                System::String^ strRecentMailCount = msclr::interop::marshal_as<System::String^>(Config::getInstance().getValue("recentlyReceivedMailsCount").c_str());
+                int recentMailCount = System::Int32::Parse(strRecentMailCount);
                 for (int i = 0; i < 10 && i < mailInfos->Length; i++)
                 {
                     MailInfo^ info = dynamic_cast<MailInfo^>(mailInfos->GetValue(i));
                     Mail^ oMail = oClient->GetMail(info);
-                    receivedEmails->Add(oMail);
+                    mails->Add(oMail);
+                }
+                if (mails->Count > 0) {
+                    receivedEmails->Clear();
+                    receivedEmails->AddRange(mails);
                 }
             }
             catch (Exception^ ep)

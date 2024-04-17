@@ -57,13 +57,13 @@ namespace EmailClient {
 
 
 
-	private: System::Windows::Forms::Button^ sentButton;
 
-	private: System::Windows::Forms::Button^ incomingButton;
+
+
 	private: System::Windows::Forms::ListView^ letterList;
 	private: System::Windows::Forms::Button^ refreshButton;
 
-	private: System::Windows::Forms::Button^ draftedButton;
+
 
 	private: System::Windows::Forms::RichTextBox^ searchTextField;
 
@@ -105,9 +105,6 @@ namespace EmailClient {
 			this->menuLettersSplitContainer = (gcnew System::Windows::Forms::SplitContainer());
 			this->itemsMenu = (gcnew System::Windows::Forms::GroupBox());
 			this->refreshButton = (gcnew System::Windows::Forms::Button());
-			this->draftedButton = (gcnew System::Windows::Forms::Button());
-			this->sentButton = (gcnew System::Windows::Forms::Button());
-			this->incomingButton = (gcnew System::Windows::Forms::Button());
 			this->searchLetterListSplitContainer = (gcnew System::Windows::Forms::SplitContainer());
 			this->searchTextField = (gcnew System::Windows::Forms::RichTextBox());
 			this->createNewMail = (gcnew System::Windows::Forms::Button());
@@ -241,9 +238,6 @@ namespace EmailClient {
 			// itemsMenu
 			// 
 			this->itemsMenu->Controls->Add(this->refreshButton);
-			this->itemsMenu->Controls->Add(this->draftedButton);
-			this->itemsMenu->Controls->Add(this->sentButton);
-			this->itemsMenu->Controls->Add(this->incomingButton);
 			this->itemsMenu->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->itemsMenu->Location = System::Drawing::Point(0, 0);
 			this->itemsMenu->MinimumSize = System::Drawing::Size(0, 504);
@@ -258,50 +252,13 @@ namespace EmailClient {
 			this->refreshButton->Dock = System::Windows::Forms::DockStyle::Top;
 			this->refreshButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"refreshButton.Image")));
 			this->refreshButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->refreshButton->Location = System::Drawing::Point(3, 112);
+			this->refreshButton->Location = System::Drawing::Point(3, 16);
 			this->refreshButton->Name = L"refreshButton";
 			this->refreshButton->Size = System::Drawing::Size(353, 32);
 			this->refreshButton->TabIndex = 3;
 			this->refreshButton->Text = L"REFRESH";
 			this->refreshButton->UseVisualStyleBackColor = true;
 			this->refreshButton->Click += gcnew System::EventHandler(this, &Gui::refreshMails);
-			// 
-			// draftedButton
-			// 
-			this->draftedButton->Dock = System::Windows::Forms::DockStyle::Top;
-			this->draftedButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"draftedButton.Image")));
-			this->draftedButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->draftedButton->Location = System::Drawing::Point(3, 80);
-			this->draftedButton->Name = L"draftedButton";
-			this->draftedButton->Size = System::Drawing::Size(353, 32);
-			this->draftedButton->TabIndex = 2;
-			this->draftedButton->Text = L"Drafted";
-			this->draftedButton->UseVisualStyleBackColor = true;
-			// 
-			// sentButton
-			// 
-			this->sentButton->Dock = System::Windows::Forms::DockStyle::Top;
-			this->sentButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"sentButton.Image")));
-			this->sentButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->sentButton->Location = System::Drawing::Point(3, 48);
-			this->sentButton->Name = L"sentButton";
-			this->sentButton->Size = System::Drawing::Size(353, 32);
-			this->sentButton->TabIndex = 1;
-			this->sentButton->Text = L"Sent";
-			this->sentButton->UseVisualStyleBackColor = true;
-			// 
-			// incomingButton
-			// 
-			this->incomingButton->BackColor = System::Drawing::SystemColors::Control;
-			this->incomingButton->Dock = System::Windows::Forms::DockStyle::Top;
-			this->incomingButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"incomingButton.Image")));
-			this->incomingButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->incomingButton->Location = System::Drawing::Point(3, 16);
-			this->incomingButton->Name = L"incomingButton";
-			this->incomingButton->Size = System::Drawing::Size(353, 32);
-			this->incomingButton->TabIndex = 0;
-			this->incomingButton->Text = L"Incoming";
-			this->incomingButton->UseVisualStyleBackColor = false;
 			// 
 			// searchLetterListSplitContainer
 			// 
