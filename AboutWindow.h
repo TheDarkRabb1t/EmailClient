@@ -34,9 +34,12 @@ namespace EmailClient {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::SplitContainer^ splitContainer1;
+	private: System::Windows::Forms::SplitContainer^ headerBodySplitC;
 	protected:
-	private: System::Windows::Forms::SplitContainer^ splitContainer2;
+
+	private: System::Windows::Forms::SplitContainer^ imageShortDescriptionSplitC;
+	protected:
+
 	private: System::Windows::Forms::TextBox^ aboutBodyText;
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::PictureBox^ appLogoPicture;
@@ -58,56 +61,56 @@ namespace EmailClient {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AboutWindow::typeid));
-			this->splitContainer1 = (gcnew System::Windows::Forms::SplitContainer());
-			this->splitContainer2 = (gcnew System::Windows::Forms::SplitContainer());
+			this->headerBodySplitC = (gcnew System::Windows::Forms::SplitContainer());
+			this->imageShortDescriptionSplitC = (gcnew System::Windows::Forms::SplitContainer());
 			this->appLogoPicture = (gcnew System::Windows::Forms::PictureBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->aboutBodyText = (gcnew System::Windows::Forms::TextBox());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->BeginInit();
-			this->splitContainer1->Panel1->SuspendLayout();
-			this->splitContainer1->Panel2->SuspendLayout();
-			this->splitContainer1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer2))->BeginInit();
-			this->splitContainer2->Panel1->SuspendLayout();
-			this->splitContainer2->Panel2->SuspendLayout();
-			this->splitContainer2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->headerBodySplitC))->BeginInit();
+			this->headerBodySplitC->Panel1->SuspendLayout();
+			this->headerBodySplitC->Panel2->SuspendLayout();
+			this->headerBodySplitC->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->imageShortDescriptionSplitC))->BeginInit();
+			this->imageShortDescriptionSplitC->Panel1->SuspendLayout();
+			this->imageShortDescriptionSplitC->Panel2->SuspendLayout();
+			this->imageShortDescriptionSplitC->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->appLogoPicture))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// splitContainer1
+			// headerBodySplitC
 			// 
-			this->splitContainer1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->splitContainer1->Location = System::Drawing::Point(0, 0);
-			this->splitContainer1->Name = L"splitContainer1";
-			this->splitContainer1->Orientation = System::Windows::Forms::Orientation::Horizontal;
+			this->headerBodySplitC->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->headerBodySplitC->Location = System::Drawing::Point(0, 0);
+			this->headerBodySplitC->Name = L"headerBodySplitC";
+			this->headerBodySplitC->Orientation = System::Windows::Forms::Orientation::Horizontal;
 			// 
-			// splitContainer1.Panel1
+			// headerBodySplitC.Panel1
 			// 
-			this->splitContainer1->Panel1->Controls->Add(this->splitContainer2);
+			this->headerBodySplitC->Panel1->Controls->Add(this->imageShortDescriptionSplitC);
 			// 
-			// splitContainer1.Panel2
+			// headerBodySplitC.Panel2
 			// 
-			this->splitContainer1->Panel2->Controls->Add(this->aboutBodyText);
-			this->splitContainer1->Size = System::Drawing::Size(348, 325);
-			this->splitContainer1->SplitterDistance = 115;
-			this->splitContainer1->TabIndex = 0;
+			this->headerBodySplitC->Panel2->Controls->Add(this->aboutBodyText);
+			this->headerBodySplitC->Size = System::Drawing::Size(348, 325);
+			this->headerBodySplitC->SplitterDistance = 115;
+			this->headerBodySplitC->TabIndex = 0;
 			// 
-			// splitContainer2
+			// imageShortDescriptionSplitC
 			// 
-			this->splitContainer2->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->splitContainer2->Location = System::Drawing::Point(0, 0);
-			this->splitContainer2->Name = L"splitContainer2";
+			this->imageShortDescriptionSplitC->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->imageShortDescriptionSplitC->Location = System::Drawing::Point(0, 0);
+			this->imageShortDescriptionSplitC->Name = L"imageShortDescriptionSplitC";
 			// 
-			// splitContainer2.Panel1
+			// imageShortDescriptionSplitC.Panel1
 			// 
-			this->splitContainer2->Panel1->Controls->Add(this->appLogoPicture);
+			this->imageShortDescriptionSplitC->Panel1->Controls->Add(this->appLogoPicture);
 			// 
-			// splitContainer2.Panel2
+			// imageShortDescriptionSplitC.Panel2
 			// 
-			this->splitContainer2->Panel2->Controls->Add(this->textBox1);
-			this->splitContainer2->Size = System::Drawing::Size(348, 115);
-			this->splitContainer2->SplitterDistance = 140;
-			this->splitContainer2->TabIndex = 0;
+			this->imageShortDescriptionSplitC->Panel2->Controls->Add(this->textBox1);
+			this->imageShortDescriptionSplitC->Size = System::Drawing::Size(348, 115);
+			this->imageShortDescriptionSplitC->SplitterDistance = 140;
+			this->imageShortDescriptionSplitC->TabIndex = 0;
 			// 
 			// appLogoPicture
 			// 
@@ -152,21 +155,21 @@ namespace EmailClient {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(348, 325);
-			this->Controls->Add(this->splitContainer1);
+			this->Controls->Add(this->headerBodySplitC);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"AboutWindow";
 			this->Text = L"About Window";
-			this->splitContainer1->Panel1->ResumeLayout(false);
-			this->splitContainer1->Panel2->ResumeLayout(false);
-			this->splitContainer1->Panel2->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer1))->EndInit();
-			this->splitContainer1->ResumeLayout(false);
-			this->splitContainer2->Panel1->ResumeLayout(false);
-			this->splitContainer2->Panel1->PerformLayout();
-			this->splitContainer2->Panel2->ResumeLayout(false);
-			this->splitContainer2->Panel2->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->splitContainer2))->EndInit();
-			this->splitContainer2->ResumeLayout(false);
+			this->headerBodySplitC->Panel1->ResumeLayout(false);
+			this->headerBodySplitC->Panel2->ResumeLayout(false);
+			this->headerBodySplitC->Panel2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->headerBodySplitC))->EndInit();
+			this->headerBodySplitC->ResumeLayout(false);
+			this->imageShortDescriptionSplitC->Panel1->ResumeLayout(false);
+			this->imageShortDescriptionSplitC->Panel1->PerformLayout();
+			this->imageShortDescriptionSplitC->Panel2->ResumeLayout(false);
+			this->imageShortDescriptionSplitC->Panel2->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->imageShortDescriptionSplitC))->EndInit();
+			this->imageShortDescriptionSplitC->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->appLogoPicture))->EndInit();
 			this->ResumeLayout(false);
 
