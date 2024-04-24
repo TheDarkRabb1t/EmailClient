@@ -42,45 +42,22 @@ namespace EmailClient {
 	private: System::Windows::Forms::SplitContainer^ headerBodySplitContainer;
 	private: System::Windows::Forms::GroupBox^ systemButtons;
 	private: System::Windows::Forms::Button^ saveButton;
-
 	private: System::Windows::Forms::Button^ settingsButton;
-
 	private: System::Windows::Forms::Button^ infoButton;
-
 	private: System::Windows::Forms::SplitContainer^ menuLettersSplitContainer;
 	private: System::Windows::Forms::SplitContainer^ searchLetterListSplitContainer;
-
 	private: System::Windows::Forms::GroupBox^ itemsMenu;
-
-
-
-
-
-
-
-
-
 	private: System::Windows::Forms::ListView^ letterList;
-	private: System::Windows::Forms::Button^ refreshButton;
-
-
 
 	private: System::Windows::Forms::RichTextBox^ searchTextField;
-
 	private: System::Windows::Forms::Button^ createNewMail;
 	private: System::Windows::Forms::ComboBox^ currentProfileBox;
+	private: System::Windows::Forms::Button^ sentLettersButton;
+
+
+	private: System::Windows::Forms::Button^ inputLettersButton;
+	private: System::Windows::Forms::Button^ refreshButton;
 	private: System::ComponentModel::IContainer^ components;
-
-
-
-
-
-
-	protected:
-
-	protected:
-
-	protected:
 
 	private:
 		/// <summary>
@@ -105,6 +82,8 @@ namespace EmailClient {
 			this->menuLettersSplitContainer = (gcnew System::Windows::Forms::SplitContainer());
 			this->itemsMenu = (gcnew System::Windows::Forms::GroupBox());
 			this->refreshButton = (gcnew System::Windows::Forms::Button());
+			this->sentLettersButton = (gcnew System::Windows::Forms::Button());
+			this->inputLettersButton = (gcnew System::Windows::Forms::Button());
 			this->searchLetterListSplitContainer = (gcnew System::Windows::Forms::SplitContainer());
 			this->searchTextField = (gcnew System::Windows::Forms::RichTextBox());
 			this->createNewMail = (gcnew System::Windows::Forms::Button());
@@ -238,6 +217,8 @@ namespace EmailClient {
 			// itemsMenu
 			// 
 			this->itemsMenu->Controls->Add(this->refreshButton);
+			this->itemsMenu->Controls->Add(this->sentLettersButton);
+			this->itemsMenu->Controls->Add(this->inputLettersButton);
 			this->itemsMenu->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->itemsMenu->Location = System::Drawing::Point(0, 0);
 			this->itemsMenu->MinimumSize = System::Drawing::Size(0, 504);
@@ -252,13 +233,37 @@ namespace EmailClient {
 			this->refreshButton->Dock = System::Windows::Forms::DockStyle::Top;
 			this->refreshButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"refreshButton.Image")));
 			this->refreshButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->refreshButton->Location = System::Drawing::Point(3, 16);
+			this->refreshButton->Location = System::Drawing::Point(3, 80);
 			this->refreshButton->Name = L"refreshButton";
 			this->refreshButton->Size = System::Drawing::Size(353, 32);
 			this->refreshButton->TabIndex = 3;
 			this->refreshButton->Text = L"REFRESH";
 			this->refreshButton->UseVisualStyleBackColor = true;
 			this->refreshButton->Click += gcnew System::EventHandler(this, &Gui::refreshMails);
+			// 
+			// sentLettersButton
+			// 
+			this->sentLettersButton->Dock = System::Windows::Forms::DockStyle::Top;
+			this->sentLettersButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"sentLettersButton.Image")));
+			this->sentLettersButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->sentLettersButton->Location = System::Drawing::Point(3, 48);
+			this->sentLettersButton->Name = L"sentLettersButton";
+			this->sentLettersButton->Size = System::Drawing::Size(353, 32);
+			this->sentLettersButton->TabIndex = 2;
+			this->sentLettersButton->Text = L"Sent";
+			this->sentLettersButton->UseVisualStyleBackColor = true;
+			// 
+			// inputLettersButton
+			// 
+			this->inputLettersButton->Dock = System::Windows::Forms::DockStyle::Top;
+			this->inputLettersButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"inputLettersButton.Image")));
+			this->inputLettersButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->inputLettersButton->Location = System::Drawing::Point(3, 16);
+			this->inputLettersButton->Name = L"inputLettersButton";
+			this->inputLettersButton->Size = System::Drawing::Size(353, 32);
+			this->inputLettersButton->TabIndex = 1;
+			this->inputLettersButton->Text = L"Incoming";
+			this->inputLettersButton->UseVisualStyleBackColor = true;
 			// 
 			// searchLetterListSplitContainer
 			// 
@@ -426,6 +431,5 @@ namespace EmailClient {
 	
 	    letterList->EndUpdate();
 	}
-
 };
 }
