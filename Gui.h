@@ -41,9 +41,11 @@ namespace EmailClient {
 		}
 	private: System::Windows::Forms::SplitContainer^ headerBodySplitContainer;
 	private: System::Windows::Forms::GroupBox^ systemButtons;
-	private: System::Windows::Forms::Button^ saveButton;
+	private: System::Windows::Forms::Button^ profilesButton;
+
 	private: System::Windows::Forms::Button^ settingsButton;
-	private: System::Windows::Forms::Button^ infoButton;
+	private: System::Windows::Forms::Button^ aboutButton;
+
 	private: System::Windows::Forms::SplitContainer^ menuLettersSplitContainer;
 	private: System::Windows::Forms::SplitContainer^ searchLetterListSplitContainer;
 	private: System::Windows::Forms::GroupBox^ itemsMenu;
@@ -52,6 +54,8 @@ namespace EmailClient {
 	private: System::Windows::Forms::RichTextBox^ searchTextField;
 	private: System::Windows::Forms::Button^ createNewMail;
 	private: System::Windows::Forms::ComboBox^ currentProfileBox;
+
+
 	private: System::Windows::Forms::Button^ sentLettersButton;
 
 
@@ -76,9 +80,9 @@ namespace EmailClient {
 			this->headerBodySplitContainer = (gcnew System::Windows::Forms::SplitContainer());
 			this->systemButtons = (gcnew System::Windows::Forms::GroupBox());
 			this->currentProfileBox = (gcnew System::Windows::Forms::ComboBox());
-			this->infoButton = (gcnew System::Windows::Forms::Button());
+			this->aboutButton = (gcnew System::Windows::Forms::Button());
 			this->settingsButton = (gcnew System::Windows::Forms::Button());
-			this->saveButton = (gcnew System::Windows::Forms::Button());
+			this->profilesButton = (gcnew System::Windows::Forms::Button());
 			this->menuLettersSplitContainer = (gcnew System::Windows::Forms::SplitContainer());
 			this->itemsMenu = (gcnew System::Windows::Forms::GroupBox());
 			this->refreshButton = (gcnew System::Windows::Forms::Button());
@@ -129,9 +133,9 @@ namespace EmailClient {
 			// systemButtons
 			// 
 			this->systemButtons->Controls->Add(this->currentProfileBox);
-			this->systemButtons->Controls->Add(this->infoButton);
+			this->systemButtons->Controls->Add(this->aboutButton);
 			this->systemButtons->Controls->Add(this->settingsButton);
-			this->systemButtons->Controls->Add(this->saveButton);
+			this->systemButtons->Controls->Add(this->profilesButton);
 			this->systemButtons->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->systemButtons->Location = System::Drawing::Point(0, 0);
 			this->systemButtons->MaximumSize = System::Drawing::Size(0, 50);
@@ -154,19 +158,19 @@ namespace EmailClient {
 			this->currentProfileBox->Text = L"Current Profile";
 			this->currentProfileBox->SelectedIndexChanged += gcnew System::EventHandler(this, &Gui::selectedProfileChanged);
 			// 
-			// infoButton
+			// aboutButton
 			// 
-			this->infoButton->Dock = System::Windows::Forms::DockStyle::Left;
-			this->infoButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"infoButton.Image")));
-			this->infoButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->infoButton->Location = System::Drawing::Point(153, 16);
-			this->infoButton->Name = L"infoButton";
-			this->infoButton->Size = System::Drawing::Size(75, 31);
-			this->infoButton->TabIndex = 2;
-			this->infoButton->Text = L"about";
-			this->infoButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->infoButton->UseVisualStyleBackColor = true;
-			this->infoButton->Click += gcnew System::EventHandler(this, &Gui::openAboutWindow);
+			this->aboutButton->Dock = System::Windows::Forms::DockStyle::Left;
+			this->aboutButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"aboutButton.Image")));
+			this->aboutButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->aboutButton->Location = System::Drawing::Point(153, 16);
+			this->aboutButton->Name = L"aboutButton";
+			this->aboutButton->Size = System::Drawing::Size(75, 31);
+			this->aboutButton->TabIndex = 2;
+			this->aboutButton->Text = L"about";
+			this->aboutButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->aboutButton->UseVisualStyleBackColor = true;
+			this->aboutButton->Click += gcnew System::EventHandler(this, &Gui::openAboutWindow);
 			// 
 			// settingsButton
 			// 
@@ -182,19 +186,19 @@ namespace EmailClient {
 			this->settingsButton->UseVisualStyleBackColor = true;
 			this->settingsButton->Click += gcnew System::EventHandler(this, &Gui::openSettingsForm);
 			// 
-			// saveButton
+			// profilesButton
 			// 
-			this->saveButton->Dock = System::Windows::Forms::DockStyle::Left;
-			this->saveButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"saveButton.Image")));
-			this->saveButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->saveButton->Location = System::Drawing::Point(3, 16);
-			this->saveButton->Name = L"saveButton";
-			this->saveButton->Size = System::Drawing::Size(75, 31);
-			this->saveButton->TabIndex = 0;
-			this->saveButton->Text = L"profiles";
-			this->saveButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->saveButton->UseVisualStyleBackColor = true;
-			this->saveButton->Click += gcnew System::EventHandler(this, &Gui::openProfilesWindow);
+			this->profilesButton->Dock = System::Windows::Forms::DockStyle::Left;
+			this->profilesButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"profilesButton.Image")));
+			this->profilesButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->profilesButton->Location = System::Drawing::Point(3, 16);
+			this->profilesButton->Name = L"profilesButton";
+			this->profilesButton->Size = System::Drawing::Size(75, 31);
+			this->profilesButton->TabIndex = 0;
+			this->profilesButton->Text = L"profiles";
+			this->profilesButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->profilesButton->UseVisualStyleBackColor = true;
+			this->profilesButton->Click += gcnew System::EventHandler(this, &Gui::openProfilesWindow);
 			// 
 			// menuLettersSplitContainer
 			// 

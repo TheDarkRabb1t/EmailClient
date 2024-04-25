@@ -41,7 +41,8 @@ namespace EmailClient {
 	protected:
 
 	private: System::Windows::Forms::TextBox^ aboutBodyText;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ shortDescription;
+
 	private: System::Windows::Forms::PictureBox^ appLogoPicture;
 
 
@@ -64,7 +65,7 @@ namespace EmailClient {
 			this->headerBodySplitC = (gcnew System::Windows::Forms::SplitContainer());
 			this->imageShortDescriptionSplitC = (gcnew System::Windows::Forms::SplitContainer());
 			this->appLogoPicture = (gcnew System::Windows::Forms::PictureBox());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->shortDescription = (gcnew System::Windows::Forms::TextBox());
 			this->aboutBodyText = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->headerBodySplitC))->BeginInit();
 			this->headerBodySplitC->Panel1->SuspendLayout();
@@ -107,7 +108,7 @@ namespace EmailClient {
 			// 
 			// imageShortDescriptionSplitC.Panel2
 			// 
-			this->imageShortDescriptionSplitC->Panel2->Controls->Add(this->textBox1);
+			this->imageShortDescriptionSplitC->Panel2->Controls->Add(this->shortDescription);
 			this->imageShortDescriptionSplitC->Size = System::Drawing::Size(348, 115);
 			this->imageShortDescriptionSplitC->SplitterDistance = 140;
 			this->imageShortDescriptionSplitC->TabIndex = 0;
@@ -123,18 +124,18 @@ namespace EmailClient {
 			this->appLogoPicture->TabIndex = 0;
 			this->appLogoPicture->TabStop = false;
 			// 
-			// textBox1
+			// shortDescription
 			// 
-			this->textBox1->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->textBox1->Location = System::Drawing::Point(0, 0);
-			this->textBox1->Multiline = true;
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->ReadOnly = true;
-			this->textBox1->Size = System::Drawing::Size(204, 115);
-			this->textBox1->TabIndex = 0;
-			this->textBox1->Text = L"EmailClient\r\nversion 1.0.0.0\r\n\r\nKhytrych Stanislav\r\nCopytright ©2024\r\nMIT LICENSE"
+			this->shortDescription->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->shortDescription->Location = System::Drawing::Point(0, 0);
+			this->shortDescription->Multiline = true;
+			this->shortDescription->Name = L"shortDescription";
+			this->shortDescription->ReadOnly = true;
+			this->shortDescription->Size = System::Drawing::Size(204, 115);
+			this->shortDescription->TabIndex = 0;
+			this->shortDescription->Text = L"EmailClient\r\nversion 1.0.0.0\r\n\r\nKhytrych Stanislav\r\nCopytright ©2024\r\nMIT LICENSE"
 				L"";
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &AboutWindow::textBox1_TextChanged);
+			this->shortDescription->TextChanged += gcnew System::EventHandler(this, &AboutWindow::textBox1_TextChanged);
 			// 
 			// aboutBodyText
 			// 
