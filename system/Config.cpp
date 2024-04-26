@@ -10,9 +10,17 @@ Config::Config() {}
 Config& Config::getInstance() {
     if (!instance) {
         instance = new Config();
+        if (instance->loadConfig()) {
+            std::cout << "config found";
+        }
+        else {
+            instance->generateDefaultConfig();
+            instance->saveConfig();
+        }
     }
     return *instance;
 }
+
 
 bool Config::loadConfig() {
     return parseConfigFile(this->configFileName);

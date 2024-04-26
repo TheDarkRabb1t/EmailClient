@@ -11,13 +11,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
     Config& config = Config::getInstance();
 
-    if (config.loadConfig()) {
-        std::cout << "config found";
-    }
-    else {
-        config.generateDefaultConfig();
-        config.saveConfig();
-    }
 
     EmailClient::Gui^ form = gcnew EmailClient::Gui();
     System::Windows::Forms::Application::Run(form);
