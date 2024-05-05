@@ -112,7 +112,15 @@ namespace EmailClient {
 			this->fileToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->saveToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->closeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->systemToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->profilesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->settingsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->infoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->aboutProgramToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->currentProfileBox = (gcnew System::Windows::Forms::ComboBox());
+			this->aboutButton = (gcnew System::Windows::Forms::Button());
+			this->settingsButton = (gcnew System::Windows::Forms::Button());
+			this->profilesButton = (gcnew System::Windows::Forms::Button());
 			this->menuLettersSplitContainer = (gcnew System::Windows::Forms::SplitContainer());
 			this->itemsMenu = (gcnew System::Windows::Forms::GroupBox());
 			this->refreshButton = (gcnew System::Windows::Forms::Button());
@@ -123,14 +131,6 @@ namespace EmailClient {
 			this->createNewMail = (gcnew System::Windows::Forms::Button());
 			this->letterList = (gcnew System::Windows::Forms::ListView());
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
-			this->systemToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->profilesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->settingsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->aboutProgramToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->currentProfileBox = (gcnew System::Windows::Forms::ComboBox());
-			this->aboutButton = (gcnew System::Windows::Forms::Button());
-			this->settingsButton = (gcnew System::Windows::Forms::Button());
-			this->profilesButton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->headerBodySplitContainer))->BeginInit();
 			this->headerBodySplitContainer->Panel1->SuspendLayout();
 			this->headerBodySplitContainer->Panel2->SuspendLayout();
@@ -221,16 +221,40 @@ namespace EmailClient {
 			// saveToolStripMenuItem
 			// 
 			this->saveToolStripMenuItem->Name = L"saveToolStripMenuItem";
-			this->saveToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->saveToolStripMenuItem->Size = System::Drawing::Size(103, 22);
 			this->saveToolStripMenuItem->Text = L"Save";
 			this->saveToolStripMenuItem->Click += gcnew System::EventHandler(this, &Gui::saveToolStripMenuItem_Click);
 			// 
 			// closeToolStripMenuItem
 			// 
 			this->closeToolStripMenuItem->Name = L"closeToolStripMenuItem";
-			this->closeToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->closeToolStripMenuItem->Size = System::Drawing::Size(103, 22);
 			this->closeToolStripMenuItem->Text = L"Close";
 			this->closeToolStripMenuItem->Click += gcnew System::EventHandler(this, &Gui::closeToolStripMenuItem_Click);
+			// 
+			// systemToolStripMenuItem
+			// 
+			this->systemToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->profilesToolStripMenuItem,
+					this->settingsToolStripMenuItem
+			});
+			this->systemToolStripMenuItem->Name = L"systemToolStripMenuItem";
+			this->systemToolStripMenuItem->Size = System::Drawing::Size(57, 21);
+			this->systemToolStripMenuItem->Text = L"System";
+			// 
+			// profilesToolStripMenuItem
+			// 
+			this->profilesToolStripMenuItem->Name = L"profilesToolStripMenuItem";
+			this->profilesToolStripMenuItem->Size = System::Drawing::Size(116, 22);
+			this->profilesToolStripMenuItem->Text = L"Profiles";
+			this->profilesToolStripMenuItem->Click += gcnew System::EventHandler(this, &Gui::openProfilesWindow);
+			// 
+			// settingsToolStripMenuItem
+			// 
+			this->settingsToolStripMenuItem->Name = L"settingsToolStripMenuItem";
+			this->settingsToolStripMenuItem->Size = System::Drawing::Size(116, 22);
+			this->settingsToolStripMenuItem->Text = L"Settings";
+			this->settingsToolStripMenuItem->Click += gcnew System::EventHandler(this, &Gui::openSettingsForm);
 			// 
 			// infoToolStripMenuItem
 			// 
@@ -238,6 +262,65 @@ namespace EmailClient {
 			this->infoToolStripMenuItem->Name = L"infoToolStripMenuItem";
 			this->infoToolStripMenuItem->Size = System::Drawing::Size(40, 21);
 			this->infoToolStripMenuItem->Text = L"Info";
+			// 
+			// aboutProgramToolStripMenuItem
+			// 
+			this->aboutProgramToolStripMenuItem->Name = L"aboutProgramToolStripMenuItem";
+			this->aboutProgramToolStripMenuItem->Size = System::Drawing::Size(107, 22);
+			this->aboutProgramToolStripMenuItem->Text = L"About";
+			this->aboutProgramToolStripMenuItem->Click += gcnew System::EventHandler(this, &Gui::openAboutWindow);
+			// 
+			// currentProfileBox
+			// 
+			this->currentProfileBox->Dock = System::Windows::Forms::DockStyle::Right;
+			this->currentProfileBox->FormattingEnabled = true;
+			this->currentProfileBox->Location = System::Drawing::Point(939, 0);
+			this->currentProfileBox->Name = L"currentProfileBox";
+			this->currentProfileBox->Size = System::Drawing::Size(139, 21);
+			this->currentProfileBox->TabIndex = 7;
+			this->currentProfileBox->Text = L"Current Profile";
+			// 
+			// aboutButton
+			// 
+			this->aboutButton->Dock = System::Windows::Forms::DockStyle::Left;
+			this->aboutButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"aboutButton.Image")));
+			this->aboutButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->aboutButton->Location = System::Drawing::Point(150, 0);
+			this->aboutButton->Name = L"aboutButton";
+			this->aboutButton->Size = System::Drawing::Size(75, 31);
+			this->aboutButton->TabIndex = 6;
+			this->aboutButton->Text = L"about";
+			this->aboutButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->aboutButton->UseVisualStyleBackColor = true;
+			this->aboutButton->Click += gcnew System::EventHandler(this, &Gui::openAboutWindow);
+			// 
+			// settingsButton
+			// 
+			this->settingsButton->Dock = System::Windows::Forms::DockStyle::Left;
+			this->settingsButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"settingsButton.Image")));
+			this->settingsButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->settingsButton->Location = System::Drawing::Point(75, 0);
+			this->settingsButton->Name = L"settingsButton";
+			this->settingsButton->Size = System::Drawing::Size(75, 31);
+			this->settingsButton->TabIndex = 5;
+			this->settingsButton->Text = L"settings";
+			this->settingsButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->settingsButton->UseVisualStyleBackColor = true;
+			this->settingsButton->Click += gcnew System::EventHandler(this, &Gui::openSettingsForm);
+			// 
+			// profilesButton
+			// 
+			this->profilesButton->Dock = System::Windows::Forms::DockStyle::Left;
+			this->profilesButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"profilesButton.Image")));
+			this->profilesButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->profilesButton->Location = System::Drawing::Point(0, 0);
+			this->profilesButton->Name = L"profilesButton";
+			this->profilesButton->Size = System::Drawing::Size(75, 31);
+			this->profilesButton->TabIndex = 4;
+			this->profilesButton->Text = L"profiles";
+			this->profilesButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->profilesButton->UseVisualStyleBackColor = true;
+			this->profilesButton->Click += gcnew System::EventHandler(this, &Gui::openProfilesWindow);
 			// 
 			// menuLettersSplitContainer
 			// 
@@ -370,89 +453,6 @@ namespace EmailClient {
 			this->contextMenuStrip1->Name = L"contextMenuStrip1";
 			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
 			// 
-			// systemToolStripMenuItem
-			// 
-			this->systemToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->profilesToolStripMenuItem,
-					this->settingsToolStripMenuItem
-			});
-			this->systemToolStripMenuItem->Name = L"systemToolStripMenuItem";
-			this->systemToolStripMenuItem->Size = System::Drawing::Size(57, 21);
-			this->systemToolStripMenuItem->Text = L"System";
-			// 
-			// profilesToolStripMenuItem
-			// 
-			this->profilesToolStripMenuItem->Name = L"profilesToolStripMenuItem";
-			this->profilesToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->profilesToolStripMenuItem->Text = L"Profiles";
-			this->profilesToolStripMenuItem->Click += gcnew System::EventHandler(this, &Gui::openProfilesWindow);
-			// 
-			// settingsToolStripMenuItem
-			// 
-			this->settingsToolStripMenuItem->Name = L"settingsToolStripMenuItem";
-			this->settingsToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->settingsToolStripMenuItem->Text = L"Settings";
-			this->settingsToolStripMenuItem->Click += gcnew System::EventHandler(this, &Gui::openSettingsForm);
-			// 
-			// aboutProgramToolStripMenuItem
-			// 
-			this->aboutProgramToolStripMenuItem->Name = L"aboutProgramToolStripMenuItem";
-			this->aboutProgramToolStripMenuItem->Size = System::Drawing::Size(180, 22);
-			this->aboutProgramToolStripMenuItem->Text = L"About";
-			this->aboutProgramToolStripMenuItem->Click += gcnew System::EventHandler(this, &Gui::openAboutWindow);
-			// 
-			// currentProfileBox
-			// 
-			this->currentProfileBox->Dock = System::Windows::Forms::DockStyle::Right;
-			this->currentProfileBox->FormattingEnabled = true;
-			this->currentProfileBox->Location = System::Drawing::Point(939, 0);
-			this->currentProfileBox->Name = L"currentProfileBox";
-			this->currentProfileBox->Size = System::Drawing::Size(139, 21);
-			this->currentProfileBox->TabIndex = 7;
-			this->currentProfileBox->Text = L"Current Profile";
-			// 
-			// aboutButton
-			// 
-			this->aboutButton->Dock = System::Windows::Forms::DockStyle::Left;
-			this->aboutButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"aboutButton.Image")));
-			this->aboutButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->aboutButton->Location = System::Drawing::Point(150, 0);
-			this->aboutButton->Name = L"aboutButton";
-			this->aboutButton->Size = System::Drawing::Size(75, 31);
-			this->aboutButton->TabIndex = 6;
-			this->aboutButton->Text = L"about";
-			this->aboutButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->aboutButton->UseVisualStyleBackColor = true;
-			this->aboutButton->Click += gcnew System::EventHandler(this, &Gui::openAboutWindow);
-			// 
-			// settingsButton
-			// 
-			this->settingsButton->Dock = System::Windows::Forms::DockStyle::Left;
-			this->settingsButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"settingsButton.Image")));
-			this->settingsButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->settingsButton->Location = System::Drawing::Point(75, 0);
-			this->settingsButton->Name = L"settingsButton";
-			this->settingsButton->Size = System::Drawing::Size(75, 31);
-			this->settingsButton->TabIndex = 5;
-			this->settingsButton->Text = L"settings";
-			this->settingsButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->settingsButton->UseVisualStyleBackColor = true;
-			this->settingsButton->Click += gcnew System::EventHandler(this, &Gui::openSettingsForm);
-			// 
-			// profilesButton
-			// 
-			this->profilesButton->Dock = System::Windows::Forms::DockStyle::Left;
-			this->profilesButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"profilesButton.Image")));
-			this->profilesButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->profilesButton->Location = System::Drawing::Point(0, 0);
-			this->profilesButton->Name = L"profilesButton";
-			this->profilesButton->Size = System::Drawing::Size(75, 31);
-			this->profilesButton->TabIndex = 4;
-			this->profilesButton->Text = L"profiles";
-			this->profilesButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			this->profilesButton->UseVisualStyleBackColor = true;
-			this->profilesButton->Click += gcnew System::EventHandler(this, &Gui::openProfilesWindow);
-			// 
 			// Gui
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -569,9 +569,11 @@ namespace EmailClient {
 	    letterList->EndUpdate();
 	}
 
-private: System::Void saveToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void closeToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+	private: System::Void saveToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	}
+	private: System::Void closeToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+	}
 };
 }
