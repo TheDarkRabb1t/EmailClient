@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>402, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="aboutButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -161,6 +164,17 @@
         1O+xDedFmn5i/Ahn4ZjTRweNA/3N/tlPf3SkUr8BjoR/egjW0BYAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="createNewMail.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAASdJREFUSEvt0i9LBEEcxvFVEREODAaLiBgsl3wFGjQajfoWjFab1uuCYLRpE5PJ
+        ZLMYFMRiUASDiPjv+z12ltuVuZ3jODDcA59jZod9frvLZcOk5B4/A2J3e/GNZxxiv0922GWn3e2fA9zh
+        A7sYRa8ZwTbe8QAHFQMsncJxvj/DDFIzjVN470m+t7M0IGQLb3jEmhdqsgyf2Cf3DXwTEx1gmrjGF1oY
+        RzVj8L5P3GAJnek6wEzCcs8vMY+QWVzAsyM0UE3tgJANvORcr+MJr9hELMkDzCKu4F9Prr3WLQtYdZEy
+        wExgL+e6Gsss/ZPUAXWJ9vzrAX6WwB7/UWFffK5+BnhvTNFZ2vSYgb9BZ6I9HpxjJ8EcYokOuIWHKVYQ
+        S+mzDJOYLPsFgz6OSD7Q8DoAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="refreshButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -177,7 +191,7 @@
   <data name="sentLettersButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAAURJREFUSEvt1L8rB3Ecx/EvkpQyUBZJBimTv4CB0WjDv2AwWGVhlVUpo41NJpPJ
+        DAAACwwBP0AiyAAAAURJREFUSEvt1L8rB3Ecx/EvkpQyUBZJBimTv4CB0WjDv2AwWGVhlVUpo41NJpPJ
         ZjFQklCkDJL8ej6/7nR337vvfXTZvq96fPvcfb/3ft31/Xy/tVZCcoWvf+Ls+uITj9jBRkXOcJYznV1/
         2cYl3rCKdvw1bVjCK65h0W+BQ3uxFx0fYgCh6cMBvHY/OnZmqiDOIl5whxlPlGQS3rF37hP4JKawwIzj
         DB/YRCey6YDXveMcE0imaYHphsN9/wTDiDOIY/jeLnqQTWlBnDk8RVzP4gHPWEBRggvMKE7h1pNrzzXL
@@ -188,7 +202,7 @@
   <data name="inputLettersButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EQAACxEBf2RfkQAAAUVJREFUSEvt078rB3Ecx/FDklIGyiLJIGXyFzAwGg0G/AmWb1ltJItdKaONTQaZ
+        DAAACwwBP0AiyAAAAUVJREFUSEvt078rB3Ecx/FDklIGyiLJIGXyFzAwGg0G/AmWb1ltJItdKaONTQaZ
         TDaLgZKEImWQ5Nfzed3pvl/f+95Hx/Z91eP7/dzd996vu+99v1EzIbnE5z9xdrz4wAO2sFqSM5zlTGfH
         L5u4wCuW0YrfpgWLeMEVLPoucGg3dpLtffQhND3Yg+fuJtvOrCpIM49n3GLKHQUZh1fslXsH3onJLTCj
         OMU7NtCO2rTB895whjFk07DAdMLhHj/GINL04wge20YXalNYkGYGjwnX07jHE+aQl+ACM4wT+NOTa/c1
@@ -196,17 +210,9 @@
         kh8FB1gKMIB6mYXH1+Ef0JlriHMOd4SYQL0cIvs5/4wLaKYoUfQFUoWRlJRyjp0AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="createNewMail.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAASdJREFUSEvt0i9LBEEcxvFVEREODAaLiBgsl3wFGjQajfoWjFab1uuCYLRpE5PJ
-        ZLMYFMRiUASDiPjv+z12ltuVuZ3jODDcA59jZod9frvLZcOk5B4/A2J3e/GNZxxiv0922GWn3e2fA9zh
-        A7sYRa8ZwTbe8QAHFQMsncJxvj/DDFIzjVN470m+t7M0IGQLb3jEmhdqsgyf2Cf3DXwTEx1gmrjGF1oY
-        RzVj8L5P3GAJnek6wEzCcs8vMY+QWVzAsyM0UE3tgJANvORcr+MJr9hELMkDzCKu4F9Prr3WLQtYdZEy
-        wExgL+e6Gsss/ZPUAXWJ9vzrAX6WwB7/UWFffK5+BnhvTNFZ2vSYgb9BZ6I9HpxjJ8EcYokOuIWHKVYQ
-        S+mzDJOYLPsFgz6OSD7Q8DoAAAAASUVORK5CYII=
-</value>
-  </data>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>132, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAgIAAAAEAIAAoCAEAFgAAACgAAACAAAAAAAEAAAEAIAAAAAAAAAABABMLAAATCwAAAAAAAAAA
