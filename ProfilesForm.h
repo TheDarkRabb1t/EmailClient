@@ -42,11 +42,15 @@ namespace EmailClient {
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::DataGridView^ profileGrid;
 
+
+
+
+
+	private: System::Windows::Forms::Button^ saveProfilesButton;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ TitleColumn;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ EmailColumn;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ LoginColumn;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ PasswordColumn;
-	private: System::Windows::Forms::Button^ saveProfilesButton;
 
 	protected:
 
@@ -82,7 +86,6 @@ namespace EmailClient {
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->profileGrid))->BeginInit();
 			this->SuspendLayout();
-			auto topLeftHeaderCell = this->profileGrid->TopLeftHeaderCell;
 			// 
 			// panel1
 			// 
@@ -101,7 +104,7 @@ namespace EmailClient {
 			this->saveProfilesButton->Name = L"saveProfilesButton";
 			this->saveProfilesButton->Size = System::Drawing::Size(416, 23);
 			this->saveProfilesButton->TabIndex = 1;
-			this->saveProfilesButton->Text = L"Save";
+			this->saveProfilesButton->Text = L"Зберегти";
 			this->saveProfilesButton->UseVisualStyleBackColor = true;
 			this->saveProfilesButton->Click += gcnew System::EventHandler(this, &ProfilesForm::saveProflies);
 			// 
@@ -121,22 +124,22 @@ namespace EmailClient {
 			// 
 			// TitleColumn
 			// 
-			this->TitleColumn->HeaderText = L"Title";
+			this->TitleColumn->HeaderText = L"Назва";
 			this->TitleColumn->Name = L"TitleColumn";
 			// 
 			// EmailColumn
 			// 
-			this->EmailColumn->HeaderText = L"Email";
+			this->EmailColumn->HeaderText = L"Пошта";
 			this->EmailColumn->Name = L"EmailColumn";
 			// 
 			// LoginColumn
 			// 
-			this->LoginColumn->HeaderText = L"Login";
+			this->LoginColumn->HeaderText = L"Логін";
 			this->LoginColumn->Name = L"LoginColumn";
 			// 
 			// PasswordColumn
 			// 
-			this->PasswordColumn->HeaderText = L"Password";
+			this->PasswordColumn->HeaderText = L"Пароль";
 			this->PasswordColumn->Name = L"PasswordColumn";
 			// 
 			// ProfilesForm
@@ -147,7 +150,7 @@ namespace EmailClient {
 			this->Controls->Add(this->panel1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"ProfilesForm";
-			this->Text = L"Profiles";
+			this->Text = L"Профілі";
 			this->panel1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->profileGrid))->EndInit();
 			this->ResumeLayout(false);

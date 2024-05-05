@@ -119,7 +119,7 @@ namespace EmailClient {
 			this->bodyGroupBox->Size = System::Drawing::Size(356, 252);
 			this->bodyGroupBox->TabIndex = 3;
 			this->bodyGroupBox->TabStop = false;
-			this->bodyGroupBox->Text = L"Subject And Body";
+			this->bodyGroupBox->Text = L"Тема й тіло листа";
 			// 
 			// emailBody
 			// 
@@ -148,7 +148,7 @@ namespace EmailClient {
 			this->topFormGroupBox->Size = System::Drawing::Size(356, 44);
 			this->topFormGroupBox->TabIndex = 2;
 			this->topFormGroupBox->TabStop = false;
-			this->topFormGroupBox->Text = L"Send To";
+			this->topFormGroupBox->Text = L"Надіслати до";
 			this->topFormGroupBox->Enter += gcnew System::EventHandler(this, &NewLetterForm::groupBox1_Enter);
 			// 
 			// emailTo
@@ -166,7 +166,7 @@ namespace EmailClient {
 			this->sendButton->Name = L"sendButton";
 			this->sendButton->Size = System::Drawing::Size(356, 40);
 			this->sendButton->TabIndex = 1;
-			this->sendButton->Text = L"Send";
+			this->sendButton->Text = L"Надіслати";
 			this->sendButton->UseVisualStyleBackColor = true;
 			this->sendButton->Click += gcnew System::EventHandler(this, &NewLetterForm::sendNewEmail);
 			// 
@@ -178,7 +178,7 @@ namespace EmailClient {
 			this->Controls->Add(this->emailFormSendButtonSplit);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"NewLetterForm";
-			this->Text = L"NewLetterForm";
+			this->Text = L"Новий лист";
 			this->emailFormSendButtonSplit->Panel1->ResumeLayout(false);
 			this->emailFormSendButtonSplit->Panel2->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->emailFormSendButtonSplit))->EndInit();

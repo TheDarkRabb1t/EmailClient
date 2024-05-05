@@ -215,21 +215,21 @@ namespace EmailClient {
 					this->closeToolStripMenuItem
 			});
 			this->fileToolStripMenuItem->Name = L"fileToolStripMenuItem";
-			this->fileToolStripMenuItem->Size = System::Drawing::Size(37, 21);
-			this->fileToolStripMenuItem->Text = L"File";
+			this->fileToolStripMenuItem->Size = System::Drawing::Size(48, 21);
+			this->fileToolStripMenuItem->Text = L"Файл";
 			// 
 			// saveToolStripMenuItem
 			// 
 			this->saveToolStripMenuItem->Name = L"saveToolStripMenuItem";
-			this->saveToolStripMenuItem->Size = System::Drawing::Size(103, 22);
-			this->saveToolStripMenuItem->Text = L"Save";
+			this->saveToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->saveToolStripMenuItem->Text = L"Зберегти";
 			this->saveToolStripMenuItem->Click += gcnew System::EventHandler(this, &Gui::saveToolStripMenuItem_Click);
 			// 
 			// closeToolStripMenuItem
 			// 
 			this->closeToolStripMenuItem->Name = L"closeToolStripMenuItem";
-			this->closeToolStripMenuItem->Size = System::Drawing::Size(103, 22);
-			this->closeToolStripMenuItem->Text = L"Close";
+			this->closeToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->closeToolStripMenuItem->Text = L"Закрити";
 			this->closeToolStripMenuItem->Click += gcnew System::EventHandler(this, &Gui::closeToolStripMenuItem_Click);
 			// 
 			// systemToolStripMenuItem
@@ -239,35 +239,35 @@ namespace EmailClient {
 					this->settingsToolStripMenuItem
 			});
 			this->systemToolStripMenuItem->Name = L"systemToolStripMenuItem";
-			this->systemToolStripMenuItem->Size = System::Drawing::Size(57, 21);
-			this->systemToolStripMenuItem->Text = L"System";
+			this->systemToolStripMenuItem->Size = System::Drawing::Size(66, 21);
+			this->systemToolStripMenuItem->Text = L"Система";
 			// 
 			// profilesToolStripMenuItem
 			// 
 			this->profilesToolStripMenuItem->Name = L"profilesToolStripMenuItem";
-			this->profilesToolStripMenuItem->Size = System::Drawing::Size(116, 22);
-			this->profilesToolStripMenuItem->Text = L"Profiles";
+			this->profilesToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->profilesToolStripMenuItem->Text = L"Профілі";
 			this->profilesToolStripMenuItem->Click += gcnew System::EventHandler(this, &Gui::openProfilesWindow);
 			// 
 			// settingsToolStripMenuItem
 			// 
 			this->settingsToolStripMenuItem->Name = L"settingsToolStripMenuItem";
-			this->settingsToolStripMenuItem->Size = System::Drawing::Size(116, 22);
-			this->settingsToolStripMenuItem->Text = L"Settings";
+			this->settingsToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->settingsToolStripMenuItem->Text = L"Налаштування";
 			this->settingsToolStripMenuItem->Click += gcnew System::EventHandler(this, &Gui::openSettingsForm);
 			// 
 			// infoToolStripMenuItem
 			// 
 			this->infoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->aboutProgramToolStripMenuItem });
 			this->infoToolStripMenuItem->Name = L"infoToolStripMenuItem";
-			this->infoToolStripMenuItem->Size = System::Drawing::Size(40, 21);
-			this->infoToolStripMenuItem->Text = L"Info";
+			this->infoToolStripMenuItem->Size = System::Drawing::Size(45, 21);
+			this->infoToolStripMenuItem->Text = L"Інфо";
 			// 
 			// aboutProgramToolStripMenuItem
 			// 
 			this->aboutProgramToolStripMenuItem->Name = L"aboutProgramToolStripMenuItem";
-			this->aboutProgramToolStripMenuItem->Size = System::Drawing::Size(107, 22);
-			this->aboutProgramToolStripMenuItem->Text = L"About";
+			this->aboutProgramToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->aboutProgramToolStripMenuItem->Text = L"Про програму";
 			this->aboutProgramToolStripMenuItem->Click += gcnew System::EventHandler(this, &Gui::openAboutWindow);
 			// 
 			// currentProfileBox
@@ -285,11 +285,11 @@ namespace EmailClient {
 			this->aboutButton->Dock = System::Windows::Forms::DockStyle::Left;
 			this->aboutButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"aboutButton.Image")));
 			this->aboutButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->aboutButton->Location = System::Drawing::Point(150, 0);
+			this->aboutButton->Location = System::Drawing::Point(188, 0);
 			this->aboutButton->Name = L"aboutButton";
-			this->aboutButton->Size = System::Drawing::Size(75, 31);
+			this->aboutButton->Size = System::Drawing::Size(108, 31);
 			this->aboutButton->TabIndex = 6;
-			this->aboutButton->Text = L"about";
+			this->aboutButton->Text = L"Про програму";
 			this->aboutButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->aboutButton->UseVisualStyleBackColor = true;
 			this->aboutButton->Click += gcnew System::EventHandler(this, &Gui::openAboutWindow);
@@ -299,11 +299,11 @@ namespace EmailClient {
 			this->settingsButton->Dock = System::Windows::Forms::DockStyle::Left;
 			this->settingsButton->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"settingsButton.Image")));
 			this->settingsButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			this->settingsButton->Location = System::Drawing::Point(75, 0);
+			this->settingsButton->Location = System::Drawing::Point(83, 0);
 			this->settingsButton->Name = L"settingsButton";
-			this->settingsButton->Size = System::Drawing::Size(75, 31);
+			this->settingsButton->Size = System::Drawing::Size(105, 31);
 			this->settingsButton->TabIndex = 5;
-			this->settingsButton->Text = L"settings";
+			this->settingsButton->Text = L"Налаштуваня";
 			this->settingsButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->settingsButton->UseVisualStyleBackColor = true;
 			this->settingsButton->Click += gcnew System::EventHandler(this, &Gui::openSettingsForm);
@@ -315,9 +315,9 @@ namespace EmailClient {
 			this->profilesButton->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->profilesButton->Location = System::Drawing::Point(0, 0);
 			this->profilesButton->Name = L"profilesButton";
-			this->profilesButton->Size = System::Drawing::Size(75, 31);
+			this->profilesButton->Size = System::Drawing::Size(83, 31);
 			this->profilesButton->TabIndex = 4;
-			this->profilesButton->Text = L"profiles";
+			this->profilesButton->Text = L"Профілі";
 			this->profilesButton->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			this->profilesButton->UseVisualStyleBackColor = true;
 			this->profilesButton->Click += gcnew System::EventHandler(this, &Gui::openProfilesWindow);
@@ -363,7 +363,7 @@ namespace EmailClient {
 			this->refreshButton->Name = L"refreshButton";
 			this->refreshButton->Size = System::Drawing::Size(353, 32);
 			this->refreshButton->TabIndex = 3;
-			this->refreshButton->Text = L"REFRESH";
+			this->refreshButton->Text = L"Оновити";
 			this->refreshButton->UseVisualStyleBackColor = true;
 			this->refreshButton->Click += gcnew System::EventHandler(this, &Gui::refreshMails);
 			// 
@@ -376,7 +376,7 @@ namespace EmailClient {
 			this->sentLettersButton->Name = L"sentLettersButton";
 			this->sentLettersButton->Size = System::Drawing::Size(353, 32);
 			this->sentLettersButton->TabIndex = 2;
-			this->sentLettersButton->Text = L"Sent";
+			this->sentLettersButton->Text = L"Надіслані";
 			this->sentLettersButton->UseVisualStyleBackColor = true;
 			// 
 			// inputLettersButton
@@ -388,7 +388,7 @@ namespace EmailClient {
 			this->inputLettersButton->Name = L"inputLettersButton";
 			this->inputLettersButton->Size = System::Drawing::Size(353, 32);
 			this->inputLettersButton->TabIndex = 1;
-			this->inputLettersButton->Text = L"Incoming";
+			this->inputLettersButton->Text = L"Вхідні";
 			this->inputLettersButton->UseVisualStyleBackColor = true;
 			// 
 			// searchLetterListSplitContainer

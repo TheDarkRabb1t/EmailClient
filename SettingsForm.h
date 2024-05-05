@@ -58,6 +58,8 @@ namespace EmailClient {
 
 
 
+
+
 	protected:
 
 	private:
@@ -76,9 +78,9 @@ namespace EmailClient {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(SettingsForm::typeid));
 			this->settingsGridSaveBSplit = (gcnew System::Windows::Forms::SplitContainer());
 			this->settingsGrid = (gcnew System::Windows::Forms::DataGridView());
+			this->applySettingsButton = (gcnew System::Windows::Forms::Button());
 			this->PropertyName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->PropertyValue = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->applySettingsButton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->settingsGridSaveBSplit))->BeginInit();
 			this->settingsGridSaveBSplit->Panel1->SuspendLayout();
 			this->settingsGridSaveBSplit->Panel2->SuspendLayout();
@@ -123,17 +125,6 @@ namespace EmailClient {
 			this->settingsGrid->Size = System::Drawing::Size(318, 400);
 			this->settingsGrid->TabIndex = 0;
 			// 
-			// PropertyName
-			// 
-			this->PropertyName->HeaderText = L"Property";
-			this->PropertyName->Name = L"PropertyName";
-			this->PropertyName->ReadOnly = true;
-			// 
-			// PropertyValue
-			// 
-			this->PropertyValue->HeaderText = L"Value";
-			this->PropertyValue->Name = L"PropertyValue";
-			// 
 			// applySettingsButton
 			// 
 			this->applySettingsButton->Dock = System::Windows::Forms::DockStyle::Fill;
@@ -141,9 +132,20 @@ namespace EmailClient {
 			this->applySettingsButton->Name = L"applySettingsButton";
 			this->applySettingsButton->Size = System::Drawing::Size(318, 49);
 			this->applySettingsButton->TabIndex = 0;
-			this->applySettingsButton->Text = L"Apply";
+			this->applySettingsButton->Text = L"Прийняти";
 			this->applySettingsButton->UseVisualStyleBackColor = true;
 			this->applySettingsButton->Click += gcnew System::EventHandler(this, &SettingsForm::applySettings);
+			// 
+			// PropertyName
+			// 
+			this->PropertyName->HeaderText = L"Властивість";
+			this->PropertyName->Name = L"PropertyName";
+			this->PropertyName->ReadOnly = true;
+			// 
+			// PropertyValue
+			// 
+			this->PropertyValue->HeaderText = L"Значення";
+			this->PropertyValue->Name = L"PropertyValue";
 			// 
 			// SettingsForm
 			// 
@@ -153,7 +155,7 @@ namespace EmailClient {
 			this->Controls->Add(this->settingsGridSaveBSplit);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"SettingsForm";
-			this->Text = L"Settings";
+			this->Text = L"Налаштування";
 			this->settingsGridSaveBSplit->Panel1->ResumeLayout(false);
 			this->settingsGridSaveBSplit->Panel2->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->settingsGridSaveBSplit))->EndInit();

@@ -133,8 +133,8 @@ namespace EmailClient {
 			this->shortDescription->ReadOnly = true;
 			this->shortDescription->Size = System::Drawing::Size(204, 115);
 			this->shortDescription->TabIndex = 0;
-			this->shortDescription->Text = L"EmailClient\r\nversion 1.0.0.0\r\n\r\nKhytrych Stanislav\r\nCopytright ©2024\r\nMIT LICENSE"
-				L"";
+			this->shortDescription->Text = L"EmailClient\r\nВерсія 1.0.0.0\r\n\r\nХитрич Станіслав 1ПІ-21Б\r\nCopytright ©2024\r\nMIT LI"
+				L"CENSE";
 			this->shortDescription->TextChanged += gcnew System::EventHandler(this, &AboutWindow::textBox1_TextChanged);
 			// 
 			// aboutBodyText
@@ -149,7 +149,9 @@ namespace EmailClient {
 			this->aboutBodyText->RightToLeft = System::Windows::Forms::RightToLeft::No;
 			this->aboutBodyText->Size = System::Drawing::Size(348, 206);
 			this->aboutBodyText->TabIndex = 0;
-			this->aboutBodyText->Text = resources->GetString(L"aboutBodyText.Text");
+			this->aboutBodyText->Text = L"EmailClient — програма для керування електронною поштою. За допомогою EmailClient"
+				L" ви можете створювати кілька профілів, надсилати повідомлення та отримувати елек"
+				L"тронні листи без зусиль.";
 			// 
 			// AboutWindow
 			// 
@@ -159,7 +161,7 @@ namespace EmailClient {
 			this->Controls->Add(this->headerBodySplitC);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"AboutWindow";
-			this->Text = L"About Window";
+			this->Text = L"Про програму";
 			this->headerBodySplitC->Panel1->ResumeLayout(false);
 			this->headerBodySplitC->Panel2->ResumeLayout(false);
 			this->headerBodySplitC->Panel2->PerformLayout();
